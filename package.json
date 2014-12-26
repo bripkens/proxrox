@@ -1,0 +1,11 @@
+{
+  "name": "nginx.js",
+  "version": "1.0.0",
+  "description": "Start and stop nginx for development purposes",
+  "main": "bin/",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ben Ripkens <bripkens.dev@gmail.com>",
+  "license": "MIT"
+}
