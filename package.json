@@ -4,7 +4,7 @@
   "description": "Start and stop nginx for development purposes",
   "main": "bin/",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "author": "Ben Ripkens <bripkens.dev@gmail.com>",
   "license": "MIT",
