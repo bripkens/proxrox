@@ -27,6 +27,16 @@ describe('config_generator', function() {
         logDir: '/tmp/nginx-logs'
       }, 'simple.conf');
     });
+
+    it('should support directory indices', function() {
+      testConfig({
+        serverName: 'example',
+        port: 8080,
+        root: '/var/www',
+        logDir: '/tmp/nginx-logs',
+        directoryIndex: true
+      }, 'directoryIndex.conf');
+    });
   });
 });
 

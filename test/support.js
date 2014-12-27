@@ -12,11 +12,11 @@ global.assertWithDiff = function(actual, expected) {
   }
 
   var msg = 'Differences between expected and actual result:\n'.red;
-  var diff = jsdiff.diffChars(actual, expected);
+  var diff = jsdiff.diffChars(expected, actual);
 
   diff.forEach(function(part) {
     // green for additions, red for deletions grey for common parts
-    var color = part.added ? 'green' : part.removed ? 'red' : 'grey';
+    var color = part.added ? 'red' : part.removed ? 'red' : 'grey';
     msg += part.value[color];
   });
 
