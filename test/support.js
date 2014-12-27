@@ -20,6 +20,7 @@ global.assertWithDiff = function(actual, expected) {
     msg += part.value[color];
   });
 
+  msg += 'Actual:\n' + actual;
   msg += '\n';
 
   throw new Error(msg);
