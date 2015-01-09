@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "Start and stop nginx for development purposes",
   "main": "bin/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bripkens/nginx.js.git"
+  },
   "scripts": {
     "test": "mocha && eslint lib/*.js test/*.js"
   },
