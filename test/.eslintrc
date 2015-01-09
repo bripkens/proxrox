@@ -1,0 +1,10 @@
+---
+  env:
+    node: true
+  rules:
+    no-unused-expressions: [0]
+  globals:
+    describe: false
+    it: false
+    beforeEach: false
+    assertWithDiff: false

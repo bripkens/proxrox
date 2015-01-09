@@ -1,0 +1,11 @@
+---
+  env:
+    node: true
+  rules:
+    brace-style: [2, '1tbs', { 'allowSingleLine': true }]
+    quotes: [2, "single", "avoid-escape"]
+    max-len: [2, 80, 4]
+    complexity: [2, 4]
+    no-use-before-define: [2, 'nofunc']
+  globals:
+    Promise: true
