@@ -2,6 +2,7 @@
   "name": "nginx.js",
   "version": "1.0.0",
   "description": "Start and stop nginx for development purposes",
+  "os" : ["darwin", "linux"],
   "main": "bin/",
   "repository": {
     "type": "git",
