@@ -2,6 +2,7 @@
 
 'use strict';
 
+require('colors');
 var commander = require('commander');
 
 var install = require('../lib/install');
@@ -33,15 +34,20 @@ program
   .command('start')
   .description('Serve contents of the current directory via nginx')
   .action(function() {
-    console.log('Starting...');
-
-    control.start({
+    var port = 4000;
+    var config = {
       serverName: 'example',
-      port: 4000,
+      port: port,
       root: process.cwd(),
       logDir: 'logs/',
       directoryIndex: true
-    });
+    };
+    var result = control.start(config);
+
+    console.log('Server successfully started'.underline.green);
+    console.log('URI:                             http://localhost:%d', port);
+    console.log('Nginx config and log location:   %s', result.path);
+    console.log('Process ID:                      %d', result.pid);
   });
 
 program
