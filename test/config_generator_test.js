@@ -35,6 +35,16 @@ describe('config_generator', function() {
         gzip: true
       }, 'gzip.conf');
     });
+
+    it('should proxy requests', function() {
+      testConfig({
+        serverName: 'example',
+        port: 8080,
+        root: '/var/www',
+        logDir: '/tmp/nginx-logs/',
+        proxy: 'http://127.0.0.1:8080'
+      }, 'proxy.conf');
+    });
   });
 });
 
