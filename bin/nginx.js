@@ -42,7 +42,8 @@ program
       port: port,
       root: process.cwd(),
       logDir: 'logs/',
-      directoryIndex: true
+      directoryIndex: true,
+      proxy: cmd.proxy || null
     };
     var result = control.start(config);
 
