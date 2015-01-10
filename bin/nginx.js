@@ -48,7 +48,9 @@ program
   .command('stop')
   .description('Stop nginx')
   .action(function() {
-    console.log('Stopping...');
+    if (!control.stop()) {
+      console.error('Failed to stop nginx');
+    }
   });
 
 program.parse(process.argv);
