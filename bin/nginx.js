@@ -2,9 +2,11 @@
 
 'use strict';
 
-var program = require('commander');
+var commander = require('commander');
 
 var install = require('../lib/install');
+
+var program = new commander.Command('nginx.js');
 
 program
   .version(require('../package.json').version);

@@ -15,7 +15,7 @@
     "url": "https://github.com/bripkens/nginx.js.git"
   },
   "scripts": {
-    "test": "mocha && eslint lib/*.js test/*.js"
+    "test": "mocha && eslint lib/*.js test/*.js bin/*.js"
   },
   "author": "Ben Ripkens <bripkens.dev@gmail.com>",
   "license": "MIT",
