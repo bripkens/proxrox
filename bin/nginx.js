@@ -59,4 +59,11 @@ program
     }
   });
 
+program
+  .command('*')
+  .action(function(cmd) {
+    var msg = 'Unknown command ' + cmd;
+    console.error(msg.red);
+  });
+
 program.parse(process.argv);
