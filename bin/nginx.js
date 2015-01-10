@@ -33,8 +33,10 @@ program
 program
   .command('start')
   .description('Serve contents of the current directory via nginx')
-  .action(function() {
-    var port = 4000;
+  .option('--proxy <uri>', 'An IP to proxy via nginx')
+  .option('-p --port [port]', 'The port Nginx will listen to.', 4000)
+  .action(function(cmd) {
+    var port = cmd.port;
     var config = {
       serverName: 'example',
       port: port,
@@ -52,18 +54,17 @@ program
 
 program
   .command('stop')
-  .description('Stop nginx')
+  .description('Stop all running nginx instances')
   .action(function() {
     if (!control.stop()) {
-      console.error('Failed to stop nginx');
+      console.error('Failed to stop Nginx');
     }
   });
 
-program
-  .command('*')
-  .action(function(cmd) {
-    var msg = 'Unknown command ' + cmd;
-    console.error(msg.red);
-  });
-
 program.parse(process.argv);
+if (program.args.length === 0) {
+  // this automatically quits the program
+  program.help();
+} else if (typeof program.args[0] === 'string') {
+  console.error(('Unknown command ' + program.args[0]).red);
+}
