@@ -2,8 +2,14 @@
   "name": "nginx.js",
   "version": "1.0.0",
   "description": "Start and stop nginx for development purposes",
-  "os" : ["darwin", "linux"],
-  "main": "bin/",
+  "os": [
+    "darwin",
+    "linux"
+  ],
+  "main": "lib/index.js",
+  "bin": {
+    "nginx.js": "bin/nginx.js"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/bripkens/nginx.js.git"
@@ -15,6 +21,7 @@
   "license": "MIT",
   "dependencies": {
     "bluebird": "^2.4.2",
+    "commander": "^2.6.0",
     "ejs": "^1.0.0",
     "shelljs": "^0.3.0"
   },
