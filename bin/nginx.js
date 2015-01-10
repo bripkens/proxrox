@@ -5,6 +5,7 @@
 var commander = require('commander');
 
 var install = require('../lib/install');
+var control = require('../lib/control');
 
 var program = new commander.Command('nginx.js');
 
@@ -33,6 +34,14 @@ program
   .description('Serve contents of the current directory via nginx')
   .action(function() {
     console.log('Starting...');
+
+    control.start({
+      serverName: 'example',
+      port: 4000,
+      root: process.cwd(),
+      logDir: 'logs/',
+      directoryIndex: true
+    });
   });
 
 program

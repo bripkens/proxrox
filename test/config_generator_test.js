@@ -12,7 +12,7 @@ describe('config_generator', function() {
         serverName: 'example',
         port: 8080,
         root: '/var/www',
-        logDir: '/tmp/nginx-logs'
+        logDir: '/tmp/nginx-logs/'
       }, 'simple.conf');
     });
 
@@ -21,7 +21,7 @@ describe('config_generator', function() {
         serverName: 'example',
         port: 8080,
         root: '/var/www',
-        logDir: '/tmp/nginx-logs',
+        logDir: '/tmp/nginx-logs/',
         directoryIndex: true
       }, 'directoryIndex.conf');
     });
@@ -31,7 +31,7 @@ describe('config_generator', function() {
         serverName: 'example',
         port: 8080,
         root: '/var/www',
-        logDir: '/tmp/nginx-logs',
+        logDir: '/tmp/nginx-logs/',
         gzip: true
       }, 'gzip.conf');
     });
