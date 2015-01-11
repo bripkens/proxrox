@@ -34,7 +34,8 @@ program
   .command('start')
   .description('Serve contents of the current directory via nginx')
   .option('--proxy <uri>', 'An IP to proxy via nginx')
-  .option('-p --port [port]', 'The port Nginx will listen to.', 4000)
+  .option('-p --port [port]', 'The port to bind to.', 4000)
+  .option('--no-compression', 'Disable GZIP compression', false)
   .action(function(cmd) {
     var port = cmd.port;
     var config = {
@@ -43,6 +44,7 @@ program
       root: process.cwd(),
       logDir: 'logs/',
       directoryIndex: true,
+      gzip: cmd.compression,
       proxy: cmd.proxy || null
     };
     var result = control.start(config);
