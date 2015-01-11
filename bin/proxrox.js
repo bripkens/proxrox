@@ -38,6 +38,7 @@ program
   .option('--no-compression', 'Disable GZIP compression', false)
   .option('--ssi', 'Enable server-side includes', false)
   .option('--tls', 'Enable transport layer security', false)
+  .option('--spdy', 'Support the SPDY protocol (implies --tls)', false)
   .action(function(cmd) {
     var config = {
       serverName: 'example',
@@ -47,7 +48,8 @@ program
       directoryIndex: true,
       gzip: cmd.compression,
       proxy: cmd.proxy || null,
-      tls: cmd.tls,
+      tls: cmd.tls || cmd.spdy,
+      spdy: cmd.spdy,
       ssi: cmd.ssi
     };
     var result = control.start(config);

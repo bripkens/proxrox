@@ -3,6 +3,7 @@
 ## Unreleased
  - automatically create a self-signed certificate and enable transport layer
    security via `--tls`
+ - support SPDY via `--spdy`
 
 ## 1.1.0
  - enable GZIP compression by default

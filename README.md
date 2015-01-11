@@ -38,9 +38,14 @@ for all requests that couldn't be served from the working directory:
 proxrox start --proxy http://127.0.0.1:8080
 ```
 
-Enable server-side includes
+Enable server-side includes:
 ```
 proxrox start --ssi
+```
+
+Enable transport layer security and SPDY support:
+```
+proxrox start --spdy
 ```
 
 Stop the running nginx instances (stops all):

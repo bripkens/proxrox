@@ -65,6 +65,17 @@ describe('config_generator', function() {
         tls: true
       }, 'tls.conf');
     });
+
+    it('should support spdy', function() {
+      testConfig({
+        serverName: 'example',
+        port: 8080,
+        root: '/var/www',
+        logDir: '/tmp/nginx-logs/',
+        tls: true,
+        spdy: true
+      }, 'spdy.conf');
+    });
   });
 });
 
