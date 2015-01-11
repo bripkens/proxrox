@@ -1,18 +1,19 @@
 {
-  "name": "nginx.js",
+  "name": "proxrox",
   "version": "1.0.0",
   "description": "Start and stop nginx for development purposes",
+  "preferGlobal": true,
   "os": [
     "darwin",
     "linux"
   ],
   "main": "lib/index.js",
   "bin": {
-    "nginx.js": "bin/nginx.js"
+    "proxrox": "bin/proxrox.js"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/bripkens/nginx.js.git"
+    "url": "https://github.com/bripkens/proxrox.js.git"
   },
   "scripts": {
     "test": "mocha && eslint lib/*.js test/*.js bin/*.js"
