@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+ - automatically create a self-signed certificate and enable transport layer
+   security via `--tls`
+
 ## 1.1.0
  - enable GZIP compression by default
  - disable GZIP compression with `--no-compression`

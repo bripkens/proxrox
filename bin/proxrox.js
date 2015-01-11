@@ -37,24 +37,27 @@ program
   .option('-p --port [port]', 'The port to bind to.', 4000)
   .option('--no-compression', 'Disable GZIP compression', false)
   .option('--ssi', 'Enable server-side includes', false)
+  .option('--tls', 'Enable transport layer security', false)
   .action(function(cmd) {
-    var port = cmd.port;
     var config = {
       serverName: 'example',
-      port: port,
+      port: cmd.port,
       root: process.cwd(),
       logDir: 'logs/',
       directoryIndex: true,
       gzip: cmd.compression,
       proxy: cmd.proxy || null,
+      tls: cmd.tls,
       ssi: cmd.ssi
     };
     var result = control.start(config);
 
+    var scheme = config.tls ? 'https' : 'http';
+    var uri = scheme + '://localhost:' + config.port;
     console.log('Server successfully started'.underline.green);
-    console.log('URI:                             http://localhost:%d', port);
+    console.log('URI:                             %s', uri);
     console.log('Nginx config and log location:   %s', result.path);
-    console.log('Process ID:                      %d', result.pid);
+    console.log('Nginx Process ID:                %d', result.pid);
   });
 
 program
@@ -62,7 +65,8 @@ program
   .description('Stop all running nginx instances')
   .action(function() {
     if (!control.stop()) {
-      console.error('Failed to stop Nginx');
+      console.error('Failed to stop Nginx'.red);
+      process.exit(1);
     }
   });
 
@@ -72,4 +76,5 @@ if (program.args.length === 0) {
   program.help();
 } else if (typeof program.args[0] === 'string') {
   console.error(('Unknown command ' + program.args[0]).red);
+  process.exit(1);
 }

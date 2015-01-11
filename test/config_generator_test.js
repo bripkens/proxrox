@@ -55,6 +55,16 @@ describe('config_generator', function() {
         ssi: true
       }, 'ssi.conf');
     });
+
+    it('should support tls', function() {
+      testConfig({
+        serverName: 'example',
+        port: 8080,
+        root: '/var/www',
+        logDir: '/tmp/nginx-logs/',
+        tls: true
+      }, 'tls.conf');
+    });
   });
 });
 
