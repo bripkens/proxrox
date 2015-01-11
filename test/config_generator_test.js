@@ -45,6 +45,16 @@ describe('config_generator', function() {
         proxy: 'http://127.0.0.1:8080'
       }, 'proxy.conf');
     });
+
+    it('should support ssi', function() {
+      testConfig({
+        serverName: 'example',
+        port: 8080,
+        root: '/var/www',
+        logDir: '/tmp/nginx-logs/',
+        ssi: true
+      }, 'ssi.conf');
+    });
   });
 });
 

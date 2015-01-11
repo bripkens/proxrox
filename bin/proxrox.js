@@ -36,6 +36,7 @@ program
   .option('--proxy <uri>', 'An IP to proxy via nginx')
   .option('-p --port [port]', 'The port to bind to.', 4000)
   .option('--no-compression', 'Disable GZIP compression', false)
+  .option('--ssi', 'Enable server-side includes', false)
   .action(function(cmd) {
     var port = cmd.port;
     var config = {
@@ -45,7 +46,8 @@ program
       logDir: 'logs/',
       directoryIndex: true,
       gzip: cmd.compression,
-      proxy: cmd.proxy || null
+      proxy: cmd.proxy || null,
+      ssi: cmd.ssi
     };
     var result = control.start(config);
 

@@ -3,6 +3,7 @@
 ## Unreleased
  - enable GZIP compression by default
  - disable GZIP compression with `--no-compression`
+ - enable SSI via `--ssi`
 
 ## 1.0.2
  - typo in `colors` dependency
