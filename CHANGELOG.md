@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 1.2.0
  - automatically create a self-signed certificate and enable transport layer
    security via `--tls`
  - support SPDY via `--spdy`
