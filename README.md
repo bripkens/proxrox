@@ -1,5 +1,7 @@
 # proxrox
 
+[![Build Status](https://travis-ci.org/bripkens/proxrox.svg?branch=master)](https://travis-ci.org/bripkens/proxrox)
+
 proxrox is a command line utility which starts a local nginx instance to
 serve up static files, proxy one or many services under a single origin, use
 SSL locally and, generally, to get a development environment that is
