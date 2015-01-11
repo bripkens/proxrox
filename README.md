@@ -2,7 +2,7 @@
 
 proxrox is a command line utility which starts a local nginx instance to
 serve up static files, proxy one or many services under a single origin, use
-SSL locally and, generally, to get an environment during development that is
+SSL locally and, generally, to get a development environment that is
 similar to a production environment.
 
 proxrox achieves this using nginx. When proxrox is asked to start a server, it
