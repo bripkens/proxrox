@@ -1,6 +1,6 @@
 {
   "name": "proxrox",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "Start and stop nginx for development purposes",
   "preferGlobal": true,
   "os": [
