@@ -3,6 +3,8 @@
 ## Unreleased
  - fixes an issue where proxrox tried to read the pid file before nginx
    finished starting up
+ - share proxrox configurations and start proxrox with a local configuration
+   file in JSON and YAML format via `proxrox start [config]`
 
 ## 1.2.0
  - automatically create a self-signed certificate and enable transport layer
