@@ -1,5 +1,8 @@
 # Changelog
 
+## Unreleased
+ - proxy multiple services via the `proxy` configuration option
+
 ## 1.3.0
  - fixes an issue where proxrox tried to read the pid file before nginx
    finished starting up
