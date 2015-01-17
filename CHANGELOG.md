@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+ - fixes an issue where proxrox tried to read the pid file before nginx
+   finished starting up
+
 ## 1.2.0
  - automatically create a self-signed certificate and enable transport layer
    security via `--tls`

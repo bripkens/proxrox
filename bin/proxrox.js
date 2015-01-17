@@ -59,7 +59,6 @@ program
     console.log('Server successfully started'.underline.green);
     console.log('URI:                             %s', uri);
     console.log('Nginx config and log location:   %s', result.path);
-    console.log('Nginx Process ID:                %d', result.pid);
   });
 
 program
