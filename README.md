@@ -102,7 +102,7 @@ this. The following sections explain all the supported options.
 proxy: 'http://127.0.0.1:8080'
 spdy: true
 ssi: true
-root: '/Users/ben/web'
+root: './web'
 ```
 
 List of supported options:
@@ -126,7 +126,9 @@ The port to bind to.
    - http://nginx.org/en/docs/http/ngx_http_core_module.html#listen
 
 ### root
-Defines the path to the directory which should be served via HTTP.
+Defines the path to the directory which should be served via HTTP. You can
+use absolute paths or relative paths that are resolved against the location
+of the config file.
 
  - **Type**: `string`
  - **Default**: The current working directory

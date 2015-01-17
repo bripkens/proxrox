@@ -5,10 +5,12 @@
 require('colors');
 var commander = require('commander');
 var _ = require('lodash');
+var path = require('path');
 
 var install = require('../lib/install');
 var control = require('../lib/control');
 var configLoader = require('../lib/config_loader');
+var util = require('../lib/util');
 
 var program = new commander.Command();
 var executedCommands = [];
@@ -68,7 +70,17 @@ program
     // commander.js for some CLI parser that allows one to check whether
     // a CLI arg is set.
     if (configLocation) {
-      config = _.defaults(configLoader.loadConfig(configLocation), config);
+      var loadedConfig = configLoader.loadConfig(configLocation);
+      // relative root paths should be supported. Resolve the root against
+      // the config location
+      if (loadedConfig.root && util.isRelative(loadedConfig.root)) {
+        var root = path.resolve(
+          path.dirname(configLocation),
+          loadedConfig.root
+        );
+        loadedConfig.root = root;
+      }
+      config = _.defaults(loadedConfig, config);
     }
 
     var result = control.start(config);
