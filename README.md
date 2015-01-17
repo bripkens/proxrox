@@ -131,9 +131,10 @@ use absolute paths or relative paths that are resolved against the location
 of the config file.
 
 Use `false` to deactivate serving of static assets. This is only useful if you
-are using proxrox to combine multiple services via proxies.
+are using proxrox to combine multiple services via proxies and don't care
+about serving static assets from the file system.
 
- - **Type**: `string` or `boolean`
+ - **Type**: `string` or `boolean` (only `false` is supported)
  - **Default**: The current working directory
  - **Nginx docs**:
    - http://nginx.org/en/docs/http/ngx_http_core_module.html#root
@@ -161,14 +162,46 @@ Whether or not to use gzip compression for responses (if possible).
    - http://nginx.org/en/docs/http/ngx_http_gzip_module.html#gzip
 
 ### proxy
-Fall back to this proxy for every incoming request that could not be served
-from the configured `root` directory. A named location will be created for
-this proxy and used within nginx's `try_files` directive.
+Proxy requests to services via nginx. This is very useful to combine services
+under a single origin. Proxies can be used in two ways with proxrox.
 
-Use `null` or do not specify if you don't want o use a proxy.
+ 1. When serving static assets, a proxy defined for url `/` will act as a fall
+    back for all incoming requests. This is done via a named location which is
+    referenced in nginx's `try_files` directive.
+ 2. When not serving static assets, all proxies are turned into nginx
+    location blocks, i.e. for a specific location an nginx proxy is used.
 
- - **Type**: `string`
- - **Default**: `null`
+Examples:
+
+The following config is used to serve static assets and to provide a fallback
+for incoming requests.
+
+```
+root: '/var/www'
+proxy: 'http://api.example.com'
+```
+
+The previous configuration is effectively the same as writing the following:
+```
+root: '/var/www'
+proxy:
+  '/': 'http://api.example.com'
+```
+
+Multiple proxies can be used which will be turned into additional nginx
+location blocks:
+```
+root: '/var/www'
+proxy:
+  '/': 'http://api.example.com'
+  '/cms': 'http://127.0.0.1:8080'
+```
+
+For more example and resulting nginx configurations take a look at the
+[tests](https://github.com/bripkens/proxrox/blob/master/test/config_generator_test.js).
+
+ - **Type**: `string` or `object<string, string>`
+ - **Default**: `{}`
  - **Nginx docs**:
    - http://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_pass
 
