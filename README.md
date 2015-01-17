@@ -13,13 +13,21 @@ instance using this config file. This means that proxrox can theoretically
 support all of nginx's features.
 
 ## Installation
-In order to use proxrox you will need to have Node.js and NPM installed.
-proxrox is currently only meant to be used as a command line utility, but may
-export an API in the future for tool developers.
+TL;DR; `npm install -g proxrox`. Nginx needs to be on the `$PATH`
+
+In order to use proxrox you will need to have Node.js, NPM and nginx installed.
+Nginx can be installed automatically for OS X users via `proxrox install`.
+Users of other operating systems currently have to install nginx manually. The
+issue tracker [contains installation instructions](https://github.com/bripkens/proxrox/issues/11)
+for Ubuntu 14.04. Make sure that the `nginx` CLI is on the `$PATH`.
 
 ```
 npm install -g proxrox
 ```
+
+Proxrox is currently only meant to be used as a command line utility, but may
+export an API in the future for tool developers.
+
 
 ## Usage
 Install nginx (platform specific, not yet supported for all platforms):
