@@ -2,6 +2,7 @@
 
 ## Unreleased
  - proxy multiple services via the `proxy` configuration option
+ - disable static asset serving via `root: false`
 
 ## 1.3.0
  - fixes an issue where proxrox tried to read the pid file before nginx

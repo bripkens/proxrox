@@ -130,7 +130,10 @@ Defines the path to the directory which should be served via HTTP. You can
 use absolute paths or relative paths that are resolved against the location
 of the config file.
 
- - **Type**: `string`
+Use `false` to deactivate serving of static assets. This is only useful if you
+are using proxrox to combine multiple services via proxies.
+
+ - **Type**: `string` or `boolean`
  - **Default**: The current working directory
  - **Nginx docs**:
    - http://nginx.org/en/docs/http/ngx_http_core_module.html#root

@@ -102,6 +102,20 @@ describe('config_generator', function() {
         }
       }, 'proxies_without_try_files.conf');
     });
+
+    it('should proxy on root without static asset serving', function() {
+      testConfig({
+        serverName: 'example',
+        port: 8080,
+        root: false,
+        logDir: '/tmp/nginx-logs/',
+        proxy: {
+          '/': 'http://127.0.0.1:3000',
+          '/cms': 'http://127.0.0.1:8080',
+          '/api': 'http://api.example.com'
+        }
+      }, 'proxies_without_static_asset_serving.conf');
+    });
   });
 });
 
