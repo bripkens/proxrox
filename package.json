@@ -1,7 +1,7 @@
 {
   "name": "proxrox",
   "version": "1.2.0",
-  "description": "Start and stop nginx for development purposes",
+  "description": "Proxy services, combine origins, use SSI and more during development",
   "preferGlobal": true,
   "os": [
     "darwin",
