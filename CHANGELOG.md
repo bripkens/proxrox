@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 1.3.0
  - fixes an issue where proxrox tried to read the pid file before nginx
    finished starting up
  - share proxrox configurations and start proxrox with a local configuration
