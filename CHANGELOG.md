@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 1.4.0
  - proxy multiple services via the `proxy` configuration option
  - disable static asset serving via `root: false`
 
