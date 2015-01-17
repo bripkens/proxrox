@@ -38,14 +38,14 @@ for all requests that couldn't be served from the working directory:
 proxrox start --proxy http://127.0.0.1:8080
 ```
 
-Enable server-side includes:
+Enable server-side includes, transport layer security and SPDY support:
 ```
-proxrox start --ssi
+proxrox start --spdy --ssi
 ```
 
-Enable transport layer security and SPDY support:
+Start proxrox using a local [configuration file](#config-format):
 ```
-proxrox start --spdy
+proxrox start .proxrox.yaml
 ```
 
 Stop the running nginx instances (stops all):
@@ -78,3 +78,118 @@ security in browsers.
 Many people don't know or use server-side includes. There are probably various
 reasons for this. One thing that I noticed myself is that it just takes time
 to setup a proper development environment with proxy servers.
+
+
+## Config format
+Proxrox can be started with a config from the file system. This file
+can be shared in a team, e.g. placed in a repository, to ensure that
+every team member is using the same configuration. Proxrox supports two
+config file format:
+
+ - JSON (recommended file name is `.proxrox.json`)
+ - YAML (recommended file name is `.proxrox.yaml`)
+
+All configuration options in this config file will take precedence over
+proxrox's defaults and the CLI arguments. If you need to adapt specific
+options to developers' machines, then you shouldn't put these options into
+the config file as these values would otherwise take precedence.
+
+A configuration file in the YAML format (in `.proxrox.yaml`) would look like
+this. The following sections explain all the supported options.
+
+```
+# you can use YAML comments
+proxy: 'http://127.0.0.1:8080'
+spdy: true
+ssi: true
+root: '/Users/ben/web'
+```
+
+List of supported options:
+
+### serverName
+This option is used to populate nginx's `server_name` directive. Most users
+will not make use of this option and can use the default value.
+
+ - **Type**: `string`
+ - **Default**: `'example'`
+ - **Nginx docs**:
+   - http://nginx.org/en/docs/http/server_names.html
+   - http://nginx.org/en/docs/http/ngx_http_core_module.html#server_name
+
+### port
+The port to bind to.
+
+ - **Type**: `number`
+ - **Default**: `4000`
+ - **Nginx docs**:
+   - http://nginx.org/en/docs/http/ngx_http_core_module.html#listen
+
+### root
+Defines the path to the directory which should be served via HTTP.
+
+ - **Type**: `string`
+ - **Default**: The current working directory
+ - **Nginx docs**:
+   - http://nginx.org/en/docs/http/ngx_http_core_module.html#root
+
+### logDir
+Defines the path to the nginx logs.
+
+ - **Type**: `string`
+ - **Default**: `'logs/'` (relative to nginx config dir)
+
+### directoryIndex
+Whether or not to generated a directory listing for requests to directories.
+
+ - **Type**: `boolean`
+ - **Default**: `true`
+ - **Nginx docs**:
+   - http://nginx.org/en/docs/http/ngx_http_autoindex_module.html#autoindex
+
+### gzip
+Whether or not to use gzip compression for responses (if possible).
+
+ - **Type**: `boolean`
+ - **Default**: `true`
+ - **Nginx docs**:
+   - http://nginx.org/en/docs/http/ngx_http_gzip_module.html#gzip
+
+### proxy
+Fall back to this proxy for every incoming request that could not be served
+from the configured `root` directory. A named location will be created for
+this proxy and used within nginx's `try_files` directive.
+
+Use `null` or do not specify if you don't want o use a proxy.
+
+ - **Type**: `string`
+ - **Default**: `null`
+ - **Nginx docs**:
+   - http://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_pass
+
+
+### tls
+When set, proxrox will generate a self-signed SSL certificate. Once started,
+nginx will only accept `https` connections under the configured `port`.
+
+ - **Type**: `boolean`
+ - **Default**: `false`
+ - **Nginx docs**:
+   - http://nginx.org/en/docs/http/configuring_https_servers.html
+
+
+### spdy
+Proxrox can enable SPDY. Activating SPDY also implies the `tls` option.
+
+ - **Type**: `boolean`
+ - **Default**: `false`
+ - **Nginx docs**:
+   - http://nginx.org/en/docs/http/ngx_http_spdy_module.html
+
+### ssi
+Server-side includes are very useful and can be activated with the `ssi` flag.
+
+ - **Type**: `boolean`
+ - **Default**: `false`
+ - **Nginx docs**:
+   - http://nginx.org/en/docs/http/ngx_http_ssi_module.html
