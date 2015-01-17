@@ -76,6 +76,32 @@ describe('config_generator', function() {
         spdy: true
       }, 'spdy.conf');
     });
+
+    it('should support multiple proxies', function() {
+      testConfig({
+        serverName: 'example',
+        port: 8080,
+        root: '/var/www',
+        logDir: '/tmp/nginx-logs/',
+        proxy: {
+          '/': 'http://127.0.0.1:8080',
+          '/api': 'http://api.example.com'
+        }
+      }, 'proxies.conf');
+    });
+
+    it('should work without root proxy', function() {
+      testConfig({
+        serverName: 'example',
+        port: 8080,
+        root: '/var/www',
+        logDir: '/tmp/nginx-logs/',
+        proxy: {
+          '/cms': 'http://127.0.0.1:8080',
+          '/api': 'http://api.example.com'
+        }
+      }, 'proxies_without_try_files.conf');
+    });
   });
 });
 
