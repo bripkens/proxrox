@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.5.0
+ - `proxrox stop` no longer exists with a status code != 0 when no nginx
+   process was running.
+
 ## 1.4.0
  - proxy multiple services via the `proxy` configuration option
  - disable static asset serving via `root: false`

@@ -95,10 +95,7 @@ program
   .command('stop')
   .description('Stop all running nginx instances')
   .action(trackExecutedCommand(function() {
-    if (!control.stop()) {
-      console.error('Failed to stop Nginx'.red);
-      process.exit(1);
-    }
+    control.stop();
   }));
 
 program.parse(process.argv);
