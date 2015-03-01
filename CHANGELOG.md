@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.6.0
+ - Remove request body size restrictions to enable file uplodas to proxied
+   backends.
+
 ## 1.5.0
  - `proxrox stop` no longer exists with a status code != 0 when no nginx
    process was running.
