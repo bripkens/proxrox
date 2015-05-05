@@ -116,6 +116,18 @@ describe('config_generator', function() {
         }
       }, 'proxies_without_static_asset_serving.conf');
     });
+
+    it('should proxy with websocket upgrade support', function() {
+      testConfig({
+        serverName: 'example',
+        port: 8080,
+        root: false,
+        logDir: '/tmp/nginx-logs/',
+        websocketProxy: {
+          '/api/data': 'http://api.example.com/api/foo'
+        }
+      }, 'websocket_proxy.conf');
+    });
   });
 });
 

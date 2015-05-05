@@ -214,6 +214,17 @@ For more example and resulting nginx configurations take a look at the
    - http://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_pass
 
 
+### websocketProxy
+Similar to the `proxy` directive, the `websocketProxy` directive will proxy requests to services that accept HTTP upgrade requests. In contrast to the `proxy` directive, the `websocketProxy` directive sets the necessary HTTP `Upgrade` and `Connection` headers.
+
+Example:
+
+```
+websocketProxy:
+  '/socket.io': 'http://127.0.0.1:3000/socket.io'
+```
+
+
 ### tls
 When set, proxrox will generate a self-signed SSL certificate. Once started,
 nginx will only accept `https` connections under the configured `port`.
