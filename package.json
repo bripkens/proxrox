@@ -1,6 +1,6 @@
 {
   "name": "proxrox",
-  "version": "1.7.0",
+  "version": "1.7.1",
   "description": "Proxy services, combine origins, use SSI and more during development",
   "preferGlobal": true,
   "os": [
@@ -18,8 +18,8 @@
   "scripts": {
     "test": "mocha && eslint lib/*.js test/*.js bin/*.js"
   },
-  "engines" : {
-    "node" : ">=0.12"
+  "engines": {
+    "node": ">=0.12"
   },
   "author": "Ben Ripkens <bripkens.dev@gmail.com>",
   "license": "MIT",
