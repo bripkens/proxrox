@@ -1,6 +1,9 @@
-# proxrox
+<h1 align="center">proxrox</h1>
+<p align="center">Proxy services, combine origins, use SSL, SPDY, SSI and more during development</p>
 
 [![Build Status](https://travis-ci.org/bripkens/proxrox.svg?branch=master)](https://travis-ci.org/bripkens/proxrox)
+
+[![NPM](https://nodei.co/npm/proxrox.png?downloads=true&downloadRank=true)](https://nodei.co/npm/proxrox/)
 
 proxrox is a command line utility which starts a local nginx instance to
 serve up static files, proxy one or many services under a single origin, use
