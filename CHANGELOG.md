@@ -1,8 +1,11 @@
 # Changelog
 
-## 1.6.1
+## 1.7.1
  - `child_process.spawnSync` is now used to start and stop nginx in order to cope
    avoid hanging stop operations which occurred on some operations systems. Contributed by @basti1302 via [PR#14](https://github.com/bripkens/proxrox/issues/14).
+
+## 1.7.0
+ - WebSocket connects can now be proxied.
 
 ## 1.6.0
  - Remove request body size restrictions to enable file uplodas to proxied
