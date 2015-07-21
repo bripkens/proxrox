@@ -18,6 +18,9 @@
   "scripts": {
     "test": "mocha && eslint lib/*.js test/*.js bin/*.js"
   },
+  "engines" : {
+    "node" : ">=0.12"
+  },
   "author": "Ben Ripkens <bripkens.dev@gmail.com>",
   "license": "MIT",
   "dependencies": {
