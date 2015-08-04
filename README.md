@@ -20,7 +20,7 @@ TL;DR; `npm install -g proxrox`. Nginx needs to be on the `$PATH`
 
 In order to use proxrox you will need to have Node.js (v0.12 or greater, io.js
 will probably also work), npm and nginx installed. **proxrox will not work with
-Node.js v.010.** Nginx can be installed automatically for OS X users via
+Node.js v.0.10** Nginx can be installed automatically for OS X users via
 `proxrox install`. Users of other operating systems currently have to install
 nginx manually. The issue tracker [contains installation instructions](https://github.com/bripkens/proxrox/issues/11)
 for Ubuntu 14.04. Make sure that the `nginx` CLI is on the `$PATH`.
