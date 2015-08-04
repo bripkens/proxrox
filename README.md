@@ -20,7 +20,7 @@ TL;DR; `npm install -g proxrox`. Nginx needs to be on the `$PATH`
 
 In order to use proxrox you will need to have Node.js (v0.12 or greater, io.js
 will probably also work), npm and nginx installed. **proxrox will not work with
-Node.js v.0.10** Nginx can be installed automatically for OS X users via
+Node.js v0.10** Nginx can be installed automatically for OS X users via
 `proxrox install`. Users of other operating systems currently have to install
 nginx manually. The issue tracker [contains installation instructions](https://github.com/bripkens/proxrox/issues/11)
 for Ubuntu 14.04. Make sure that the `nginx` CLI is on the `$PATH`.
@@ -96,18 +96,18 @@ to setup a proper development environment with proxy servers.
 Proxrox can be started with a config from the file system. This file
 can be shared in a team, e.g. placed in a repository, to ensure that
 every team member is using the same configuration. Proxrox supports two
-config file format:
+config file formats:
 
  - JSON (recommended file name is `.proxrox.json`)
  - YAML (recommended file name is `.proxrox.yaml`)
 
 All configuration options in this config file will take precedence over
-proxrox's defaults and the CLI arguments. If you need to adapt specific
+proxrox's defaults and the CLI arguments. If you need to adapt
 options to developers' machines, then you shouldn't put these options into
 the config file as these values would otherwise take precedence.
 
 A configuration file in the YAML format (in `.proxrox.yaml`) would look like
-this. The following sections explain all the supported options.
+this. The following sections explain the supported options.
 
 ```
 # you can use YAML comments
