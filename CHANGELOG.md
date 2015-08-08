@@ -1,5 +1,8 @@
 # Changelog
 
+## Unreleased
+ - It is a common use case to specify proxrox as a dev dependency. Removing the `preferGlobal` flag will avoid unnecessary warnings in projects.
+
 ## 1.7.2
  - Specify temp file paths to avoid privilege issues. Fixes [issue #17](https://github.com/bripkens/proxrox/issues/17).
 
