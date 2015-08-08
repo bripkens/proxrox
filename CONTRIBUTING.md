@@ -37,3 +37,6 @@ Further paragraphs come after blank lines.
     between, but conventions vary here
 ```
 Source: http://git-scm.com/book/en/v2/Distributed-Git-Contributing-to-a-Project
+
+## Code of Conduct
+This project adheres to the [Open Code of Conduct](http://todogroup.org/opencodeofconduct/#proxrox/bripkens.dev@gmail.com). By participating, you are expected to honor this code.
