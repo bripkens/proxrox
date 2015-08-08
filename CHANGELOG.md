@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.7.2
+ - Specify temp file paths to avoid privilege issues. Fixes [issue #17](https://github.com/bripkens/proxrox/issues/17).
+
 ## 1.7.1
  - `child_process.spawnSync` is now used to start and stop nginx in order to cope
    avoid hanging stop operations which occurred on some operations systems. Contributed by @basti1302 via [PR#14](https://github.com/bripkens/proxrox/issues/14).

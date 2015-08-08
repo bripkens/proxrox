@@ -9,6 +9,7 @@ describe('config_generator', function() {
   describe('generate(config)', function() {
     it('should support simple http serving', function() {
       testConfig({
+        tmpDir: '/tmp/proxrox',
         serverName: 'example',
         port: 8080,
         root: '/var/www',
@@ -18,6 +19,7 @@ describe('config_generator', function() {
 
     it('should support directory indices', function() {
       testConfig({
+        tmpDir: '/tmp/proxrox',
         serverName: 'example',
         port: 8080,
         root: '/var/www',
@@ -28,6 +30,7 @@ describe('config_generator', function() {
 
     it('should support gzip', function() {
       testConfig({
+        tmpDir: '/tmp/proxrox',
         serverName: 'example',
         port: 8080,
         root: '/var/www',
@@ -38,6 +41,7 @@ describe('config_generator', function() {
 
     it('should proxy requests', function() {
       testConfig({
+        tmpDir: '/tmp/proxrox',
         serverName: 'example',
         port: 8080,
         root: '/var/www',
@@ -48,6 +52,7 @@ describe('config_generator', function() {
 
     it('should support ssi', function() {
       testConfig({
+        tmpDir: '/tmp/proxrox',
         serverName: 'example',
         port: 8080,
         root: '/var/www',
@@ -58,6 +63,7 @@ describe('config_generator', function() {
 
     it('should support tls', function() {
       testConfig({
+        tmpDir: '/tmp/proxrox',
         serverName: 'example',
         port: 8080,
         root: '/var/www',
@@ -68,6 +74,7 @@ describe('config_generator', function() {
 
     it('should support spdy', function() {
       testConfig({
+        tmpDir: '/tmp/proxrox',
         serverName: 'example',
         port: 8080,
         root: '/var/www',
@@ -79,6 +86,7 @@ describe('config_generator', function() {
 
     it('should support multiple proxies', function() {
       testConfig({
+        tmpDir: '/tmp/proxrox',
         serverName: 'example',
         port: 8080,
         root: '/var/www',
@@ -92,6 +100,7 @@ describe('config_generator', function() {
 
     it('should work without root proxy', function() {
       testConfig({
+        tmpDir: '/tmp/proxrox',
         serverName: 'example',
         port: 8080,
         root: '/var/www',
@@ -105,6 +114,7 @@ describe('config_generator', function() {
 
     it('should proxy on root without static asset serving', function() {
       testConfig({
+        tmpDir: '/tmp/proxrox',
         serverName: 'example',
         port: 8080,
         root: false,
@@ -119,6 +129,7 @@ describe('config_generator', function() {
 
     it('should proxy with websocket upgrade support', function() {
       testConfig({
+        tmpDir: '/tmp/proxrox',
         serverName: 'example',
         port: 8080,
         root: false,
