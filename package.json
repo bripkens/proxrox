@@ -1,6 +1,6 @@
 {
   "name": "proxrox",
-  "version": "1.7.1",
+  "version": "1.7.2",
   "description": "Proxy services, combine origins, use SSI and more during development",
   "preferGlobal": true,
   "os": [
