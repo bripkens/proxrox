@@ -139,6 +139,29 @@ describe('config_generator', function() {
         }
       }, 'websocket_proxy.conf');
     });
+
+    it('should support HTTP2', function() {
+      testConfig({
+        tmpDir: '/tmp/proxrox',
+        serverName: 'example',
+        port: 8080,
+        root: '/var/www',
+        logDir: '/tmp/nginx-logs/',
+        http2: true
+      }, 'http2.conf');
+    });
+
+    it('should support HTTP2 with tls', function() {
+      testConfig({
+        tmpDir: '/tmp/proxrox',
+        serverName: 'example',
+        port: 8080,
+        root: '/var/www',
+        logDir: '/tmp/nginx-logs/',
+        http2: true,
+        tls: true
+      }, 'http2_with_tls.conf');
+    });
   });
 });
 

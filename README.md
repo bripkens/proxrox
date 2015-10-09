@@ -240,12 +240,20 @@ nginx will only accept `https` connections under the configured `port`.
 
 
 ### spdy
-Proxrox can enable SPDY. Activating SPDY also implies the `tls` option.
+Proxrox can enable SPDY protocol support. Activating SPDY also implies the `tls` option.
 
  - **Type**: `boolean`
  - **Default**: `false`
  - **Nginx docs**:
    - http://nginx.org/en/docs/http/ngx_http_spdy_module.html
+
+### http2
+Proxrox can enable HTTP 2 protocol support. Activating HTTP 2 does not mean that `tls` is implied. Nginx can support HTTP 2 without TLS. This is only available when used with at least nginx 1.9.5.
+
+ - **Type**: `boolean`
+ - **Default**: `false`
+ - **Nginx docs**:
+   - http://nginx.org/en/docs/http/ngx_http_v2_module.html
 
 ### ssi
 Server-side includes are very useful and can be activated with the `ssi` flag.
