@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 1.7.3
  - It is a common use case to specify proxrox as a dev dependency. Removing the `preferGlobal` flag will avoid unnecessary warnings in projects.
  - HTTP 2 protocol support. Available when used with at least nginx 1.9.5.
 
