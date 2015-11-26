@@ -162,6 +162,17 @@ describe('config_generator', function() {
         tls: true
       }, 'http2_with_tls.conf');
     });
+
+    it('should support stub status', function() {
+      testConfig({
+        tmpDir: '/tmp/proxrox',
+        serverName: 'example',
+        port: 8080,
+        root: '/var/www',
+        logDir: '/tmp/nginx-logs/',
+        stubStatus: true
+      }, 'stubStatus.conf');
+    });
   });
 });
 

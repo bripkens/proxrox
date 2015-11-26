@@ -262,3 +262,11 @@ Server-side includes are very useful and can be activated with the `ssi` flag.
  - **Default**: `false`
  - **Nginx docs**:
    - http://nginx.org/en/docs/http/ngx_http_ssi_module.html
+
+### stubStatus
+Make basic Nginx status information available under the URI `/nginx_status`
+
+ - **Type**: `boolean`
+ - **Default**: `false`
+ - **Nginx docs**:
+   - http://nginx.org/en/docs/http/ngx_http_stub_status_module.html

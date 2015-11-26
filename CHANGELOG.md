@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.9.0
+ - Enable nginx stub status page via `stubStatus`.
+
 ## 1.8.1
  - Do not swallow nginx startup messages, e.g. startup failures.
 
