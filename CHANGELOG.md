@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.10.0
+ - Install full nginx with stub status support when executing `proxrox install` for OS X.
+
 ## 1.9.0
  - Enable nginx stub status page via `stubStatus`.
 
