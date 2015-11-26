@@ -1,6 +1,6 @@
 {
   "name": "proxrox",
-  "version": "1.10.0",
+  "version": "1.10.1",
   "description": "Proxy services, combine origins, use SSI and more during development",
   "os": [
     "darwin",
