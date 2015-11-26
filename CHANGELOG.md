@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.10.1
+ - Automatic nginx installation takes time. Users should be informed about the progress of the installation by forwarding brew's output.
+
 ## 1.10.0
  - Install full nginx with stub status support when executing `proxrox install` for OS X.
 
