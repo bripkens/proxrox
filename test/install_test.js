@@ -55,9 +55,9 @@ describe('install', function() {
 
       it('should fail when homebrew installation fails', function() {
         shellStub.which = sinon.stub().returns('/usr/local/bin/brew');
-        childProcessStub.exec = function(cmd, cb) {
+        childProcessStub.execSync = function(cmd) {
           expect(cmd).to.match(/brew install/);
-          process.nextTick(cb.bind(null, new Error('precondition error')));
+          throw new Error('precondition error');
         };
         var reason = /precondition error/;
         return expect(install.install()).to.be.rejectedWith(reason);
@@ -65,9 +65,8 @@ describe('install', function() {
 
       it('should work when homebrew install is successful', function() {
         shellStub.which = sinon.stub().returns('/usr/local/bin/brew');
-        childProcessStub.exec = function(cmd, cb) {
+        childProcessStub.execSync = function(cmd) {
           expect(cmd).to.match(/brew install/);
-          process.nextTick(cb.bind(null, null));
         };
         return expect(install.install()).to.be.fulfilled;
       });
