@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.10.2
+ - Proxy fallback is incompatible with `$uri/` fallback. Thank you @orangecoding.
+
 ## 1.10.1
  - Automatic nginx installation takes time. Users should be informed about the progress of the installation by forwarding brew's output.
 
