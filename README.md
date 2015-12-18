@@ -2,6 +2,8 @@
 <p align="center">Proxy services, combine origins, use SSL, SPDY, SSI and more during development</p>
 
 [![Build Status](https://travis-ci.org/bripkens/proxrox.svg?branch=master)](https://travis-ci.org/bripkens/proxrox)
+[![Dependency Status](https://david-dm.org/bripkens/proxrox/master.svg)](https://david-dm.org/bripkens/proxrox/master)
+[![devDependency Status](https://david-dm.org/bripkens/proxrox/master/dev-status.svg)](https://david-dm.org/bripkens/proxrox/master#info=devDependencies)
 
 [![NPM](https://nodei.co/npm/proxrox.png?downloads=true&downloadRank=true)](https://nodei.co/npm/proxrox/)
 
