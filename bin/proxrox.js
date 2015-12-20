@@ -4,7 +4,7 @@
 
 require('colors');
 var commander = require('commander');
-var _ = require('lodash');
+var defaults = require('lodash.defaults');
 var path = require('path');
 
 var install = require('../lib/install');
@@ -80,7 +80,7 @@ program
         );
         loadedConfig.root = root;
       }
-      config = _.defaults(loadedConfig, config);
+      config = defaults(loadedConfig, config);
     }
 
     var result = control.start(config);
