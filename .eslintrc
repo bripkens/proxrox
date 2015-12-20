@@ -1,4 +1,5 @@
 ---
+  extends: eslint:recommended
   env:
     node: true
   rules:
@@ -9,5 +10,6 @@
     no-use-before-define: [2, 'nofunc']
     no-process-exit: [0]
     no-underscore-dangle: [0]
+    no-console: 0
   globals:
     Promise: true
