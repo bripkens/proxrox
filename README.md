@@ -6,6 +6,7 @@
 [![devDependency Status](https://david-dm.org/bripkens/proxrox/master/dev-status.svg)](https://david-dm.org/bripkens/proxrox/master#info=devDependencies)
 
 [![NPM](https://nodei.co/npm/proxrox.png?downloads=true&downloadRank=true)](https://nodei.co/npm/proxrox/)
+[![NPM](https://nodei.co/npm-dl/proxrox.png)](https://nodei.co/npm/proxrox/)
 
 proxrox is a command line utility which starts a local nginx instance to
 serve up static files, proxy one or many services under a single origin, use
