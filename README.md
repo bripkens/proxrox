@@ -4,6 +4,7 @@
 [![Build Status](https://travis-ci.org/bripkens/proxrox.svg?branch=master)](https://travis-ci.org/bripkens/proxrox)
 [![Dependency Status](https://david-dm.org/bripkens/proxrox/master.svg)](https://david-dm.org/bripkens/proxrox/master)
 [![devDependency Status](https://david-dm.org/bripkens/proxrox/master/dev-status.svg)](https://david-dm.org/bripkens/proxrox/master#info=devDependencies)
+[![npm version](https://badge.fury.io/js/proxrox.svg)](https://badge.fury.io/js/proxrox)
 
 [![NPM](https://nodei.co/npm/proxrox.png?downloads=true&downloadRank=true)](https://nodei.co/npm/proxrox/)
 [![NPM](https://nodei.co/npm-dl/proxrox.png)](https://nodei.co/npm/proxrox/)
