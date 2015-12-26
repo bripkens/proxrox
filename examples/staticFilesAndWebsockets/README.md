@@ -4,7 +4,7 @@ This example shows how proxrox can be used to serve static files and how it can 
 
 ## How to run
 
-Execute the following in the base directory of this example project:
+Execute the following in the base directory of this example project.
 
 ```
 # install dependencies of this project
@@ -13,3 +13,5 @@ npm install
 # start the development mode (proxrox in this case)
 npm run dev
 ```
+
+*Please note that you will need to have nginx installed and correctly configured as described in the [README.md](../../README.md#installation).*
