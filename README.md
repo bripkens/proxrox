@@ -69,7 +69,7 @@ Stop the running nginx instances (stops all):
 proxrox stop
 ```
 
-Experience has shown that the definition of options via configuration files, e.g. `proxrox.yaml`, is the most commonly used option. Working example projects with the recommended project setup can be seen in [examples](examples) directory.
+Experience has shown that the definition of options via configuration files, e.g. `proxrox.yaml`, is the most commonly used option. Working example projects with the recommended project setup can be seen in the [examples](examples) directory.
 
 ## Why proxrox exists
 
