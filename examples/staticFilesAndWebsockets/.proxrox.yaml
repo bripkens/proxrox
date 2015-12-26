@@ -1,0 +1,3 @@
+root: .
+websocketProxy:
+  /data: https://wss.websocketstest.com/service

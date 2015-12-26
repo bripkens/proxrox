@@ -1,0 +1,51 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>WebSocket Test</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap-theme.min.css">
+</head>
+<body>
+
+  <div class="container">
+    <h1>WebSocket Connection with proxrox as WebSocket proxy</h1>
+
+    <input class="btn btn-primary"
+           type="button"
+           id="send-message"
+           value="Send Message To Server">
+    <input class="btn btn-default"
+           type="button"
+           id="activate-timer"
+           value="Activate Timer">
+
+    <h2>Retrieved messages:</h2>
+    <pre id="retrieved-messages"></pre>
+  </div>
+
+  <script>
+    (function() {
+      'use strict';
+
+      var button = document.getElementById('send-message');
+      var output = document.getElementById('retrieved-messages');
+
+      var ws = new WebSocket('ws://localhost:4000/data');
+      ws.onmessage = function onMessage(e) {
+        output.textContent = (output.textContent + '\n' + e.data).trim();
+      };
+
+      document.getElementById('send-message')
+        .addEventListener('click', function onSendMessage() {
+          ws.send('echo,' + prompt('What should we send to the server?', 'This is a test.'));
+        }, false);
+
+      document.getElementById('activate-timer')
+        .addEventListener('click', function onActivateTimer() {
+          ws.send('timer,');
+        }, false);
+    })();
+  </script>
+</body>
+</html>

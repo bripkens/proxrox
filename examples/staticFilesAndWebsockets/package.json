@@ -1,0 +1,15 @@
+{
+  "name": "static-files-and-websockets",
+  "version": "1.0.0",
+  "description": "A proxrox sample project",
+  "main": "index.js",
+  "scripts": {
+    "dev": "proxrox stop && proxrox start .proxrox.yaml && opn http://localhost:4000"
+  },
+  "author": "Ben Ripkens <bripkens.dev@gmail.com> (http://bripkens.de/)",
+  "license": "MIT",
+  "devDependencies": {
+    "opn-cli": "1.0.0",
+    "proxrox": "1.10.2"
+  }
+}
