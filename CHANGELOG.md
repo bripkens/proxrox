@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.11.0
+ - All dependencies have been updated to their latest version.
+
 ## 1.10.2
  - Proxy fallback is incompatible with `$uri/` fallback. Thank you @orangecoding.
 
