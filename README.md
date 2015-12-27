@@ -7,11 +7,13 @@
 [![npm version](https://badge.fury.io/js/proxrox.svg)](https://badge.fury.io/js/proxrox)
 
 ---
+
 **[Installation](INSTALLATION.md) |**
 **[Usage](README.md#usage) |**
 **[Configuration](CONFIGURATION.md) |**
 **[Example projects](examples) |**
 **[Changelog](CHANGELOG.md)**
+
 ---
 
 
