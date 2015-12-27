@@ -1,8 +1,7 @@
 # How to contribute
 
-Proxrox contributions are are welcome! Feel free to send a pull request
-if you find that something is missing or broken. Make sure to discuss new
-features via GitHub issues before you start working on them.
+Proxrox contributions are welcome! Feel free to send a pull request
+if you find that something is missing or broken. Make sure to discuss new features via GitHub issues before you start working on them.
 
 ## Making Changes
 
@@ -15,6 +14,7 @@ features via GitHub issues before you start working on them.
     `master` branch.
 * Make commits of logical units.
 * Check for unnecessary whitespace with `git diff --check` before committing.
+* Ensure that your code tests and lints successfully via `npm test`.
 * Make sure your commit messages are in the proper format.
 
 ```
