@@ -2,6 +2,16 @@
   "name": "proxrox",
   "version": "1.11.0",
   "description": "Proxy services, combine origins, use SSI and more during development",
+  "keywords": [
+    "nginx",
+    "proxy",
+    "same-origin policy",
+    "sop",
+    "cross domain ajax",
+    "webserver",
+    "secure cookies",
+    "http2"
+  ],
   "os": [
     "darwin",
     "linux"
