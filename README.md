@@ -21,11 +21,6 @@ Detailed installation instructions can be found in [INSTALLATION.md](INSTALLATIO
 
 
 ## Usage
-Install Nginx. This command is platform specific and currently only works on OS X.
-```
-proxrox install
-```
-
 Serve the current working directory via `http`:
 ```
 proxrox start
@@ -50,6 +45,11 @@ proxrox start .proxrox.yaml
 Stop the running Nginx instances (stops all):
 ```
 proxrox stop
+```
+
+Install Nginx. This command is platform specific and currently only works on OS X.
+```
+proxrox install
 ```
 
 Experience has shown that the definition of options via configuration files, e.g. `proxrox.yaml`, is the most commonly used option. Working example projects with the recommended project setup can be seen in the [examples](examples) directory.
