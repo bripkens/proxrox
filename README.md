@@ -8,11 +8,13 @@
 
 ---
 <p align="center">
+
 **[Installation](INSTALLATION.md) |**
 **[Usage](README.md#usage) |**
 **[Configuration](CONFIGURATION.md) |**
 **[Example projects](examples) |**
 **[Changelog](CHANGELOG.md)**
+
 </p>
 ---
 
