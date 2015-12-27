@@ -1,13 +1,21 @@
 <h1 align="center">proxrox</h1>
-<p align="center">Proxy services, combine origins, use SSL, SPDY, SSI and more during development</p>
+<p align="center">Avoid SOP problems, combine origins, proxy services, use SSL, SPDY, SSI and more during development</p>
 
 [![Build Status](https://travis-ci.org/bripkens/proxrox.svg?branch=master)](https://travis-ci.org/bripkens/proxrox)
 [![Dependency Status](https://david-dm.org/bripkens/proxrox/master.svg)](https://david-dm.org/bripkens/proxrox/master)
 [![devDependency Status](https://david-dm.org/bripkens/proxrox/master/dev-status.svg)](https://david-dm.org/bripkens/proxrox/master#info=devDependencies)
 [![npm version](https://badge.fury.io/js/proxrox.svg)](https://badge.fury.io/js/proxrox)
 
-[![NPM](https://nodei.co/npm/proxrox.png?downloads=true&downloadRank=true)](https://nodei.co/npm/proxrox/)
-[![NPM](https://nodei.co/npm-dl/proxrox.png)](https://nodei.co/npm/proxrox/)
+---
+<p align="center">
+**[Installation](INSTALLATION.md) |**
+**[Usage](README.md#usage) |**
+**[Configuration](CONFIGURATION.md) |**
+**[Example projects](examples) |**
+**[Changelog](CHANGELOG.md)**
+</p>
+---
+
 
 Proxrox is a command line utility which starts a local Nginx instance to serve up static files, proxy one or many services under a single origin, use SSL locally and, generally, to get a development environment that is
 similar to a production environment.
@@ -79,6 +87,11 @@ security in browsers.
 Many people don't know or use server-side includes. There are probably various
 reasons for this. One thing that I noticed myself is that it just takes time
 to setup a proper development environment with proxy servers.
+
+## Usage Statistics
+
+[![NPM](https://nodei.co/npm/proxrox.png?downloads=true&downloadRank=true)](https://nodei.co/npm/proxrox/)
+[![NPM](https://nodei.co/npm-dl/proxrox.png)](https://nodei.co/npm/proxrox/)
 
 ## License (MIT)
 
