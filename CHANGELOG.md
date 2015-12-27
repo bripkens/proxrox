@@ -4,7 +4,7 @@
  - All dependencies have been updated to their latest version.
 
 ## 1.10.2
- - Proxy fallback is incompatible with `$uri/` fallback. Thank you @orangecoding.
+ - Proxy fallback is incompatible with `$uri/` fallback. Contributed by @orangecoding via [PR#20](https://github.com/bripkens/proxrox/pull/20).
 
 ## 1.10.1
  - Automatic nginx installation takes time. Users should be informed about the progress of the installation by forwarding brew's output.
