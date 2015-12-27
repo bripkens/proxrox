@@ -9,35 +9,19 @@
 [![NPM](https://nodei.co/npm/proxrox.png?downloads=true&downloadRank=true)](https://nodei.co/npm/proxrox/)
 [![NPM](https://nodei.co/npm-dl/proxrox.png)](https://nodei.co/npm/proxrox/)
 
-proxrox is a command line utility which starts a local nginx instance to
-serve up static files, proxy one or many services under a single origin, use
-SSL locally and, generally, to get a development environment that is
+Proxrox is a command line utility which starts a local Nginx instance to serve up static files, proxy one or many services under a single origin, use SSL locally and, generally, to get a development environment that is
 similar to a production environment.
 
-proxrox achieves this using nginx. When proxrox is asked to start a server, it
-will create an nginx config file in a temporary location and start an nginx
-instance using this config file. This means that proxrox can theoretically
-support all of nginx's features.
+Proxrox achieves this using Nginx. When proxrox is asked to start a server, it will create an Nginx config file in a temporary location and start an Nginx instance using this config file. This means that proxrox can theoretically support all of Nginx's features.
 
 ## Installation
-TL;DR; `npm install -g proxrox`. Nginx needs to be on the `$PATH`
+**TL;DR;** `npm install -g proxrox`. Nginx needs to be on the `$PATH` and executable without super-user privileges.
 
-In order to use proxrox you will need to have Node.js (v0.12 or greater), npm and nginx installed. **proxrox will not work with
-Node.js v0.10.** Nginx can be installed automatically for OS X users via
-`proxrox install`. Users of other operating systems currently have to install
-nginx manually. The issue tracker [contains installation instructions](https://github.com/bripkens/proxrox/issues/11)
-for Ubuntu 14.04. Make sure that the `nginx` CLI is on the `$PATH`.
-
-```
-npm install -g proxrox
-```
-
-Proxrox is currently only meant to be used as a command line utility, but may
-export an API in the future for tool developers.
+Detailed installation instructions can be found in [INSTALLATION.md](INSTALLATION.md).
 
 
 ## Usage
-Install nginx. This command is platform specific and currently only works on OS X.
+Install Nginx. This command is platform specific and currently only works on OS X.
 ```
 proxrox install
 ```
@@ -63,7 +47,7 @@ Start proxrox using a local configuration file. Format and supported options are
 proxrox start .proxrox.yaml
 ```
 
-Stop the running nginx instances (stops all):
+Stop the running Nginx instances (stops all):
 ```
 proxrox stop
 ```
