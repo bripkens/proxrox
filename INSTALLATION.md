@@ -2,11 +2,21 @@
 
 The installation of proxrox requires you to have Node.js >= v0.12 and NPM installed. Also, in order to execute proxrox, you will also need to have Nginx installed, on your `$PATH` and executable without super-user privileges.
 
+This document describes and explains the installation of the required components for Mac OS X and Linux operating systems.
+
+<!-- TOC depthFrom:2 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
+
+- [Installation of Node.js and NPM](#installation-of-nodejs-and-npm)
+- [Installation of proxrox](#installation-of-proxrox)
+- [Installation of Nginx](#installation-of-nginx)
+	- [Install Nginx on Mac OS X](#install-nginx-on-mac-os-x)
+	- [Install Nginx on Ubuntu](#install-nginx-on-ubuntu)
+
+<!-- /TOC -->
+
 > **Why don't you support super-user privileges for Nginx?**
 >
 > While it would be possible to execute proxrox and Nginx *with* super-user privileges, this is strongly discouraged for security reasons. We don't want users to open up their machines to software they downloaded via the internet. Especially since it is easy to avoid.
-
-This document describes and explains the installation of the required components for Mac OS X and Linux operating systems.
 
 ## Installation of Node.js and NPM
 Mac OS X and Linux users can install Node.js via the
