@@ -6,7 +6,7 @@ Avoid SOP problems, combine origins, proxy services, use SSL, SPDY, SSI and more
 **[Usage](#usage) |**
 **[Configuration](CONFIGURATION.md) |**
 **[Example projects](examples) |**
-**[Support](#support)**
+**[Support](#support) |**
 **[Changelog](CHANGELOG.md)**
 
 ---
