@@ -1,5 +1,7 @@
 # proxrox &nbsp; [![Build Status](https://travis-ci.org/bripkens/proxrox.svg?branch=master)](https://travis-ci.org/bripkens/proxrox) [![Dependency Status](https://david-dm.org/bripkens/proxrox/master.svg)](https://david-dm.org/bripkens/proxrox/master) [![devDependency Status](https://david-dm.org/bripkens/proxrox/master/dev-status.svg)](https://david-dm.org/bripkens/proxrox/master#info=devDependencies) [![npm version](https://badge.fury.io/js/proxrox.svg)](https://badge.fury.io/js/proxrox)
 
+[![Join the chat at https://gitter.im/bripkens/proxrox](https://badges.gitter.im/bripkens/proxrox.svg)](https://gitter.im/bripkens/proxrox?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Avoid SOP problems, combine origins, proxy services, use SSL, SPDY, SSI and more… during development!
 
 **[Installation](INSTALLATION.md) |**
