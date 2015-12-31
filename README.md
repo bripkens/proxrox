@@ -3,9 +3,10 @@
 Avoid SOP problems, combine origins, proxy services, use SSL, SPDY, SSI and more… during development!
 
 **[Installation](INSTALLATION.md) |**
-**[Usage](README.md#usage) |**
+**[Usage](#usage) |**
 **[Configuration](CONFIGURATION.md) |**
 **[Example projects](examples) |**
+**[Support](#support)**
 **[Changelog](CHANGELOG.md)**
 
 ---
@@ -81,6 +82,9 @@ security in browsers.
 Many people don't know or use server-side includes. There are probably various
 reasons for this. One thing that I noticed myself is that it just takes time
 to setup a proper development environment with proxy servers.
+
+## Support
+Something not working as expected? Feel free to contact me on Twitter via [@BenRipkens](https://twitter.com/BenRipkens) or use [Gitter](https://gitter.im/bripkens/proxrox)!
 
 ## Usage Statistics
 
