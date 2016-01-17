@@ -1,0 +1,22 @@
+{
+  "name": "inquirer-dev-mode-with-webpack",
+  "version": "1.0.0",
+  "description": "A proxrox sample project",
+  "main": "index.js",
+  "scripts": {
+    "dev-client": "node build/dev.js",
+    "dev-server": "node server"
+  },
+  "author": "Ben Ripkens <bripkens.dev@gmail.com> (http://bripkens.de/)",
+  "license": "MIT",
+  "devDependencies": {
+    "inquirer": "0.11.2",
+    "opn": "2.0.0",
+    "proxrox": "1.12.0",
+    "webpack": "1.12.11",
+    "webpack-dev-server": "1.14.1"
+  },
+  "dependencies": {
+    "express": "4.13.3"
+  }
+}
