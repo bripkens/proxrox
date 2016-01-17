@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.12.0
+ - Enable usage of Proxrox with Heroku and many other hosters which dispatch based on the `Host` header.
+
 ## 1.11.0
  - All dependencies have been updated to their latest version.
 
