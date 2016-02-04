@@ -17,6 +17,12 @@ similar to a production environment.
 
 Proxrox achieves this using Nginx. When proxrox is asked to start a server, it will create an Nginx config file in a temporary location and start an Nginx instance using this config file. This means that proxrox can theoretically support all of Nginx's features.
 
+You can also use Proxrox to debug web apps, as shown in the following presentation.
+
+<a href="https://speakerdeck.com/bripkens/man-in-the-middle-yourself-debugging-production-web-apps">
+<img src="./presentation" alt="Learn about remote debugging with proxrox" width="300">
+</a>
+
 ## Installation
 **TL;DR;** `npm install -g proxrox`. Nginx needs to be on the `$PATH` and executable without super-user privileges.
 
