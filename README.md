@@ -19,9 +19,11 @@ Proxrox achieves this using Nginx. When proxrox is asked to start a server, it w
 
 You can also use Proxrox to debug web apps, as shown in the following presentation.
 
+<div align="center">
 <a href="https://speakerdeck.com/bripkens/man-in-the-middle-yourself-debugging-production-web-apps">
-<img src="./presentation" alt="Learn about remote debugging with proxrox" width="300">
+<img src="./presentation.png" alt="Learn about remote debugging with proxrox" width="400">
 </a>
+</div>
 
 ## Installation
 **TL;DR;** `npm install -g proxrox`. Nginx needs to be on the `$PATH` and executable without super-user privileges.
