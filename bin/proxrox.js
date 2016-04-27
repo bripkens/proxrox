@@ -4,7 +4,7 @@
 
 require('colors');
 var commander = require('commander');
-var defaults = require('lodash.defaults');
+var defaults = require('lodash/defaults');
 var path = require('path');
 
 var install = require('../lib/install');

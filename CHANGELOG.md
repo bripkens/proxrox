@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.12.1
+ - Upgrade dependencies to avoid insecure `node-uuid` versions and reduce footprint of proxrox.
+
 ## 1.12.0
  - Enable usage of Proxrox with Heroku and many other hosters which dispatch based on the `Host` header.
 
