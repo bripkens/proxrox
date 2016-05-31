@@ -2,6 +2,7 @@
 
 ## 1.12.2
  - Disable proxy caching to avoid caching problems during development.
+ - Update dependencies.
 
 ## 1.12.1
  - Upgrade dependencies to avoid insecure `node-uuid` versions and reduce footprint of proxrox.
