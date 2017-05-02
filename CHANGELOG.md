@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 1.13.0
  - Allow usage of existing SSL certificate.
 
 ## 1.12.2
