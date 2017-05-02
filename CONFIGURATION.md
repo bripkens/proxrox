@@ -172,7 +172,7 @@ nginx will only accept `https` connections under the configured `port`.
 
 ### tlsCertificateFile
 The location to store the tls Certificate.
-When set, proxrox will generate the SSL certificate only once,
+When set, proxrox will never generate the SSL certificate,
 otherwise regenerate the SSL certificate every time.
 If this flag is set, `tlsCertificateKeyFile` must also be set.
 
@@ -181,7 +181,7 @@ If this flag is set, `tlsCertificateKeyFile` must also be set.
 
 ### tlsCertificateKeyFile
 The location to store the tls Certificate key.
-When set, proxrox will generate the SSL certificate only once,
+When set, proxrox will never generate the SSL certificate,
 otherwise regenerate the SSL certificate every time.
 If this flag is set, `tlsCertificateFile` must also be set.
 

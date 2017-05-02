@@ -73,19 +73,6 @@ describe('config_generator', function() {
       }, 'tls.conf');
     });
 
-    it('should support tls with a custom certificate dir', function() {
-      testConfig({
-        tmpDir: '/tmp/proxrox',
-        serverName: 'example',
-        port: 8080,
-        root: '/var/www',
-        logDir: '/tmp/nginx-logs/',
-        tls: true,
-        tlsCertificateFile: '/certificates/server.crt',
-        tlsCertificateKeyFile: '/certificates/server.key'
-      }, 'tls_with_cert_dir.conf');
-    });
-
     it('should support spdy', function() {
       testConfig({
         tmpDir: '/tmp/proxrox',
