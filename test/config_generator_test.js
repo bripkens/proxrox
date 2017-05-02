@@ -2,6 +2,7 @@
 
 var path = require('path');
 var fs = require('fs');
+var expect = require('chai').expect;
 
 var configGenerator = require('../lib/config_generator');
 
@@ -172,6 +173,18 @@ describe('config_generator', function() {
         logDir: '/tmp/nginx-logs/',
         stubStatus: true
       }, 'stubStatus.conf');
+    });
+
+    it('should fail when only tlsCertificateFile is set', function() {
+      var invalid = {tlsCertificateFile: '.abc/'}
+
+      expect(function() {configGenerator.generate(invalid)}).to.throw(Error);
+    });
+
+    it('should fail when only tlsCertificateKeyFile is set', function() {
+      var invalid = {tlsCertificateKeyFile: '.abc/'}
+
+      expect(function() {configGenerator.generate(invalid)}).to.throw(Error);
     });
   });
 });

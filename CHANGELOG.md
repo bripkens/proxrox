@@ -1,5 +1,8 @@
 # Changelog
 
+## Unreleased
+ - Allow usage of existing SSL certificate.
+
 ## 1.12.2
  - Disable proxy caching to avoid caching problems during development.
  - Update dependencies.
