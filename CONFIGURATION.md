@@ -13,6 +13,8 @@
 	- [proxy](#proxy)
 	- [websocketProxy](#websocketproxy)
 	- [tls](#tls)
+  - [tlsCertificateFile](#tlsCertificateFile)
+  - [tlsCertificateKeyFile](#tlsCertificateKeyFile)
 	- [spdy](#spdy)
 	- [http2](#http2)
 	- [ssi](#ssi)
@@ -166,6 +168,24 @@ nginx will only accept `https` connections under the configured `port`.
  - **Default**: `false`
  - **Nginx docs**:
    - http://nginx.org/en/docs/http/configuring_https_servers.html
+
+
+### tlsCertificateFile
+The location to store the tls Certificate.
+When set, proxrox will generate the SSL certificate only once,
+otherwise regenerate the SSL certificate every time.
+If this flag is set, `tlsCertificateKeyFile` must also be set.
+
+ - **Type**: `string`
+
+
+### tlsCertificateKeyFile
+The location to store the tls Certificate key.
+When set, proxrox will generate the SSL certificate only once,
+otherwise regenerate the SSL certificate every time.
+If this flag is set, `tlsCertificateFile` must also be set.
+
+ - **Type**: `string`
 
 
 ### spdy
