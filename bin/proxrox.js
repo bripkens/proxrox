@@ -41,7 +41,7 @@ program
   .option('--proxy <uri>', 'An IP to proxy via nginx')
   .option('-p --port [port]', 'The port to bind to.', 4000)
   .option('--no-compression', 'Disable GZIP compression', false)
-  .option('--stubStatus', 'Enable stub_status module', false)
+  .option('--stub-status', 'Enable stub_status module', false)
   .option('--ssi', 'Enable server-side includes', false)
   .option('--tls', 'Enable transport layer security', false)
   .option('--spdy', 'Support the SPDY protocol (implies --tls)', false)
