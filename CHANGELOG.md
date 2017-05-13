@@ -1,5 +1,8 @@
 # Changelog
 
+## Unreleased
+ - Upgrade lodash and fs-extra.
+
 ## 1.14.0
  - Add `--stub-status` option to CLI. Contributed by @jbrisbin via [PR#28](https://github.com/bripkens/proxrox/pull/28).
 
