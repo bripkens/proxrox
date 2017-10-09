@@ -1,3 +1,5 @@
+'use-strict'
+
 var expect = require('chai').expect;
 var proxyquire = require('proxyquire');
 var fs = require('fs');
@@ -6,17 +8,15 @@ describe('openssl', function() {
   var control;
 
   var osStub;
-  var childProcessStub;
 
   beforeEach(function() {
-    childProcessStub = {};
     osStub = {
       hostname: function(){
         return 'some Name';
       }
     };
-    control = proxyquire('../lib/control', {
-      'child_process': childProcessStub,
+    control = proxyquire('../lib/ssl', {
+      'child_process': {},
       os: osStub
     });
   });
