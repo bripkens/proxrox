@@ -1,5 +1,3 @@
-'use strict';
-
 var expect = require('chai').expect;
 var proxyquire = require('proxyquire');
 var fs = require('fs');
