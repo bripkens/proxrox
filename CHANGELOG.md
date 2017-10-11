@@ -2,8 +2,6 @@
 
 ## Unreleased
  - Upgrade lodash and fs-extra.
-
-## 1.14.1
  - Add `-subj` to ssl certificate generation as without any dn, the creation leads to errors.
 
 ## 1.14.0
