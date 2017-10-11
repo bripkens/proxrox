@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 1.14.1
  - Upgrade lodash and fs-extra.
  - Add `-subj` to ssl certificate generation as without any dn, the creation leads to errors.
 
