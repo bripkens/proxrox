@@ -2,6 +2,7 @@
 
 ## Unreleased
  - Upgrade lodash and fs-extra.
+ - Add `-subj` to ssl certificate generation as without any dn, the creation leads to errors.
 
 ## 1.14.0
  - Add `--stub-status` option to CLI. Contributed by @jbrisbin via [PR#28](https://github.com/bripkens/proxrox/pull/28).
