@@ -1,4 +1,4 @@
-# proxrox &nbsp; [![Join the chat at https://gitter.im/bripkens/proxrox](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/bripkens/proxrox?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) [![Build Status](https://travis-ci.org/bripkens/proxrox.svg?branch=master)](https://travis-ci.org/bripkens/proxrox) [![Dependency Status](https://david-dm.org/bripkens/proxrox/master.svg)](https://david-dm.org/bripkens/proxrox/master) [![devDependency Status](https://david-dm.org/bripkens/proxrox/master/dev-status.svg)](https://david-dm.org/bripkens/proxrox/master#info=devDependencies) [![npm version](https://badge.fury.io/js/proxrox.svg)](https://badge.fury.io/js/proxrox)
+# proxrox &nbsp; (https://gitter.im/bripkens/proxrox?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) [![Build Status](https://travis-ci.org/bripkens/proxrox.svg?branch=master)](https://travis-ci.org/bripkens/proxrox) [![Dependency Status](https://david-dm.org/bripkens/proxrox/master.svg)](https://david-dm.org/bripkens/proxrox/master) [![devDependency Status](https://david-dm.org/bripkens/proxrox/master/dev-status.svg)](https://david-dm.org/bripkens/proxrox/master#info=devDependencies) [![npm version](https://badge.fury.io/js/proxrox.svg)](https://badge.fury.io/js/proxrox)
 
 Avoid SOP problems, combine origins, proxy services, use SSL, SPDY, SSI and more… during development!
 
@@ -92,7 +92,7 @@ reasons for this. One thing that I noticed myself is that it just takes time
 to setup a proper development environment with proxy servers.
 
 ## Support
-Something not working as expected? Feel free to contact me on Twitter via [@BenRipkens](https://twitter.com/BenRipkens) or use [Gitter](https://gitter.im/bripkens/proxrox)!
+Something not working as expected? Feel free to contact me on Twitter via [@BenRipkens](https://twitter.com/BenRipkens)!
 
 ## Usage Statistics
 
