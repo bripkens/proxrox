@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 1.14.2
  - Update dependencies due to security vulnerabilities.
  - Add `package-lock.json`.
 
