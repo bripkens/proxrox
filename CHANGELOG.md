@@ -2,6 +2,7 @@
 
 ## 1.14.3
  - Do not accept gzip from upstreams when server-side includes are enabled, both the combination does not work.
+ - Reduce the number of files included in releases to those necessary.
 
 ## 1.14.2
  - Update dependencies due to security vulnerabilities.
