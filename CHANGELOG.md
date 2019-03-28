@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.14.3
+ - Do not accept gzip from upstreams when server-side includes are enabled, both the combination does not work.
+
 ## 1.14.2
  - Update dependencies due to security vulnerabilities.
  - Add `package-lock.json`.
