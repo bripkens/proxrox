@@ -141,6 +141,22 @@ describe('config_generator', function() {
       }, 'websocket_proxy.conf');
     });
 
+    it('should proxy with ssi', function() {
+      testConfig({
+        tmpDir: '/tmp/proxrox',
+        serverName: 'example',
+        port: 8080,
+        root: false,
+        logDir: '/tmp/nginx-logs/',
+        ssi: true,
+        proxy: {
+          '/': 'http://127.0.0.1:3000',
+          '/cms': 'http://127.0.0.1:8080',
+          '/api': 'http://api.example.com'
+        }
+      }, 'proxies_with_ssi.conf');
+    });
+
     it('should support HTTP2', function() {
       testConfig({
         tmpDir: '/tmp/proxrox',
