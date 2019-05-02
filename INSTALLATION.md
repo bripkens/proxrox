@@ -56,10 +56,12 @@ The installation of Nginx varies per operating system. The following sections ex
 ```
 $ brew tap homebrew/nginx
 $ brew update
-$ brew install nginx-full --with-gzip-static --with-status --with-spdy
+$ brew install nginx
 $ nginx -v
 nginx version: nginx/1.8.0
 ```
+
+Please note that some nginx features aren't installed when making use of the default nginx formula. Refer to the brew formula to learn how to install optional features.
 
 ### Install Nginx on Ubuntu
 On Ubuntu you could install Nginx with `apt-get`:
