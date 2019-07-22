@@ -54,7 +54,6 @@ The installation of Nginx varies per operating system. The following sections ex
 [Homebrew](http://brew.sh/), a Mac OS X package manager, makes the installation of Nginx with various extensions very easy. You will only need to execute the following on your terminal and your are all set.
 
 ```
-$ brew tap homebrew/nginx
 $ brew update
 $ brew install nginx
 $ nginx -v
