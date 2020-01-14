@@ -81,6 +81,6 @@ In the file add the line
 <username> localhost = (root) NOPASSWD: /path/to/nginx
 ```
 
-Replace `<username>`` with the output of `whoami` and `/path/to/nginx` with the output of `which nginx`. Further information is available via [StackOverflow](http://askubuntu.com/questions/159007/how-do-i-run-specific-sudo-commands-without-a-password).
+Replace `<username>` with the output of `whoami` and `/path/to/nginx` with the output of `which nginx`. Further information is available via [StackOverflow](http://askubuntu.com/questions/159007/how-do-i-run-specific-sudo-commands-without-a-password).
 
 You will also need to `chown` the Nginx error log so it is accessible by your user. You can see the location of this log file when you run `nginx -V` as the `--error-log-path` configure argument's parameter.
