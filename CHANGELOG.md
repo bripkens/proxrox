@@ -4,6 +4,7 @@
  - Dependencies upgraded to unaddress (non-critical) security vulnerabilities in dependencies.
  - `proxrox install` will now install the regular `nginx` formula on MacOS.
  - Use `SHA256` for TLS certificates.
+ - Allow additional site definitions when starting the proxy.
 
 ## 1.14.4
  - Upgrade `js-yaml` and `mocha` to resolve security vulnerabilities.
