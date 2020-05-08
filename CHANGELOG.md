@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 1.15.0
  - Dependencies upgraded to unaddress (non-critical) security vulnerabilities in dependencies.
  - `proxrox install` will now install the regular `nginx` formula on MacOS.
  - Use `SHA256` for TLS certificates.
