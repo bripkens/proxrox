@@ -6,7 +6,7 @@
     brace-style: [2, '1tbs', { 'allowSingleLine': true }]
     quotes: [2, "single", "avoid-escape"]
     max-len: [2, 120, 4]
-    complexity: [2, 6]
+    complexity: [2, 8]
     no-use-before-define: [2, 'nofunc']
     no-process-exit: [0]
     no-underscore-dangle: [0]

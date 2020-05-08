@@ -4,13 +4,13 @@
 'use strict';
 
 require('colors');
-var commander = require('commander');
 var defaults = require('lodash/defaults');
+var commander = require('commander');
 var path = require('path');
 
+var configLoader = require('../lib/config_loader');
 var install = require('../lib/install');
 var control = require('../lib/control');
-var configLoader = require('../lib/config_loader');
 var util = require('../lib/util');
 
 var program = new commander.Command();
@@ -46,6 +46,8 @@ program
   .option('--ssi', 'Enable server-side includes', false)
   .option('--tls', 'Enable transport layer security', false)
   .option('--spdy', 'Support the SPDY protocol (implies --tls)', false)
+  .option('--no-standard-server', 'Whether or not the default server section should be generated', false)
+  .option('--extra-site <nginx config file path>', 'Additional nginx config to embed in the HTTP section')
   .action(trackExecutedCommand(function(configLocation, options) {
     // this happens when the command is called without an argument
     if (arguments.length === 1) {
@@ -64,7 +66,9 @@ program
       tls: options.tls,
       spdy: options.spdy,
       ssi: options.ssi,
-      stubStatus: options.stubStatus
+      stubStatus: options.stubStatus,
+      standardServer: options.standardServer,
+      extraSite: options.extraSite
     };
 
     // now config properties take precedence over the CLI arguments.
@@ -87,10 +91,13 @@ program
     }
 
     var result = control.start(config);
-    var scheme = config.tls ? 'https' : 'http';
-    var uri = scheme + '://localhost:' + config.port;
+
     console.log('Server successfully started'.underline.green);
-    console.log('URI:                             %s', uri);
+    if (config.standardServer) {
+      var scheme = config.tls ? 'https' : 'http';
+      var uri = scheme + '://localhost:' + config.port;
+      console.log('URI:                             %s', uri);
+    }
     console.log('Nginx config and log location:   %s', result.path);
   }));
 

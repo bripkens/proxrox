@@ -10,6 +10,7 @@ describe('config_generator', function() {
   describe('generate(config)', function() {
     it('should support simple http serving', function() {
       testConfig({
+        standardServer: true,
         tmpDir: '/tmp/proxrox',
         serverName: 'example',
         port: 8080,
@@ -20,6 +21,7 @@ describe('config_generator', function() {
 
     it('should support directory indices', function() {
       testConfig({
+        standardServer: true,
         tmpDir: '/tmp/proxrox',
         serverName: 'example',
         port: 8080,
@@ -31,6 +33,7 @@ describe('config_generator', function() {
 
     it('should support gzip', function() {
       testConfig({
+        standardServer: true,
         tmpDir: '/tmp/proxrox',
         serverName: 'example',
         port: 8080,
@@ -42,6 +45,7 @@ describe('config_generator', function() {
 
     it('should proxy requests', function() {
       testConfig({
+        standardServer: true,
         tmpDir: '/tmp/proxrox',
         serverName: 'example',
         port: 8080,
@@ -53,6 +57,7 @@ describe('config_generator', function() {
 
     it('should support ssi', function() {
       testConfig({
+        standardServer: true,
         tmpDir: '/tmp/proxrox',
         serverName: 'example',
         port: 8080,
@@ -64,6 +69,7 @@ describe('config_generator', function() {
 
     it('should support tls', function() {
       testConfig({
+        standardServer: true,
         tmpDir: '/tmp/proxrox',
         serverName: 'example',
         port: 8080,
@@ -75,6 +81,7 @@ describe('config_generator', function() {
 
     it('should support spdy', function() {
       testConfig({
+        standardServer: true,
         tmpDir: '/tmp/proxrox',
         serverName: 'example',
         port: 8080,
@@ -87,6 +94,7 @@ describe('config_generator', function() {
 
     it('should support multiple proxies', function() {
       testConfig({
+        standardServer: true,
         tmpDir: '/tmp/proxrox',
         serverName: 'example',
         port: 8080,
@@ -101,6 +109,7 @@ describe('config_generator', function() {
 
     it('should work without root proxy', function() {
       testConfig({
+        standardServer: true,
         tmpDir: '/tmp/proxrox',
         serverName: 'example',
         port: 8080,
@@ -115,6 +124,7 @@ describe('config_generator', function() {
 
     it('should proxy on root without static asset serving', function() {
       testConfig({
+        standardServer: true,
         tmpDir: '/tmp/proxrox',
         serverName: 'example',
         port: 8080,
@@ -130,6 +140,7 @@ describe('config_generator', function() {
 
     it('should proxy with websocket upgrade support', function() {
       testConfig({
+        standardServer: true,
         tmpDir: '/tmp/proxrox',
         serverName: 'example',
         port: 8080,
@@ -143,6 +154,7 @@ describe('config_generator', function() {
 
     it('should proxy with ssi', function() {
       testConfig({
+        standardServer: true,
         tmpDir: '/tmp/proxrox',
         serverName: 'example',
         port: 8080,
@@ -159,6 +171,7 @@ describe('config_generator', function() {
 
     it('should support HTTP2', function() {
       testConfig({
+        standardServer: true,
         tmpDir: '/tmp/proxrox',
         serverName: 'example',
         port: 8080,
@@ -170,6 +183,7 @@ describe('config_generator', function() {
 
     it('should support HTTP2 with tls', function() {
       testConfig({
+        standardServer: true,
         tmpDir: '/tmp/proxrox',
         serverName: 'example',
         port: 8080,
@@ -182,6 +196,7 @@ describe('config_generator', function() {
 
     it('should support stub status', function() {
       testConfig({
+        standardServer: true,
         tmpDir: '/tmp/proxrox',
         serverName: 'example',
         port: 8080,
@@ -189,6 +204,32 @@ describe('config_generator', function() {
         logDir: '/tmp/nginx-logs/',
         stubStatus: true
       }, 'stubStatus.conf');
+    });
+
+    it('should add an extra site', function() {
+      testConfig({
+        standardServer: true,
+        tmpDir: '/tmp/proxrox',
+        serverName: 'example',
+        port: 8080,
+        root: '/var/www',
+        logDir: '/tmp/nginx-logs/',
+        stubStatus: true,
+        extraSite: 'server {\n  listen 123;\n}'
+      }, 'extraSite.conf');
+    });
+
+    it('should only have the extra site', function() {
+      testConfig({
+        standardServer: false,
+        tmpDir: '/tmp/proxrox',
+        serverName: 'example',
+        port: 8080,
+        root: '/var/www',
+        logDir: '/tmp/nginx-logs/',
+        stubStatus: true,
+        extraSite: 'server {\n  listen 123;\n}'
+      }, 'extraSiteOnly.conf');
     });
 
     it('should fail when only tlsCertificateFile is set', function() {
