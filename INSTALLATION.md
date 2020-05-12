@@ -11,6 +11,7 @@ This document describes and explains the installation of the required components
 - [Installation of Nginx](#installation-of-nginx)
 	- [Install Nginx on Mac OS X](#install-nginx-on-mac-os-x)
 	- [Install Nginx on Ubuntu](#install-nginx-on-ubuntu)
+	- [Use Nginx with Docker](#use-nginx-with-docker)
 
 <!-- /TOC -->
 
@@ -84,3 +85,47 @@ In the file add the line
 Replace `<username>` with the output of `whoami` and `/path/to/nginx` with the output of `which nginx`. Further information is available via [StackOverflow](http://askubuntu.com/questions/159007/how-do-i-run-specific-sudo-commands-without-a-password).
 
 You will also need to `chown` the Nginx error log so it is accessible by your user. You can see the location of this log file when you run `nginx -V` as the `--error-log-path` configure argument's parameter.
+
+### Use Nginx with Docker
+By aliasing the `nginx` command to start a Docker container, it's also possible to run proxrox without having Nginx
+directly installed.
+
+Create a Bash script and make it executable, with the following contents:
+
+```shell
+#!/bin/bash
+
+configpath=$2
+tmpdir=$4
+echo "===> configpath: ${configpath} and tmpdir: ${tmpdir}"
+
+del_stopped(){
+  local name=$1
+  local state=$(docker inspect --format "{{.State.Running}}" $name 2>/dev/null)
+
+  if [[ "$state" == "true" ]]; then
+    docker stop $name
+    docker rm $name
+  elif [[ "$state" == "false" ]]; then
+    docker rm $name
+  fi
+}
+
+del_stopped proxrox-nginx
+
+docker run -d \
+         --restart always \
+         -v "${configpath}:/etc/nginx/nginx.conf" \
+         -v "${tmpdir}:/etc/nginx" \
+         -v "${tmpdir}:${tmpdir}" \
+         --net host \
+         --name proxrox-nginx \
+         nginx
+```
+
+Add a symbolic link to the script so it's executable from your path, e.g.:
+
+```shell
+$ ln -s <nginx-script> /usr/local/bin/nginx
+```
+
