@@ -90,6 +90,9 @@ You will also need to `chown` the Nginx error log so it is accessible by your us
 By aliasing the `nginx` command to start a Docker container, it's also possible to run proxrox without having Nginx
 directly installed.
 
+**Note**: This option is verified to work on Linux systems. On MacOS and Windows systems your mileage may vary. On Windows you
+might need to select `process` level isolation instead of `Hyper-V` isolation level for this to work.
+
 Create a Bash script and make it executable, with the following contents:
 
 ```shell
@@ -114,7 +117,7 @@ del_stopped(){
 del_stopped proxrox-nginx
 
 docker run -d \
-         --restart always \
+         --restart on-failure \
          -v "${configpath}:/etc/nginx/nginx.conf" \
          -v "${tmpdir}:/etc/nginx" \
          -v "${tmpdir}:${tmpdir}" \
@@ -129,3 +132,6 @@ Add a symbolic link to the script so it's executable from your path, e.g.:
 $ ln -s <nginx-script> /usr/local/bin/nginx
 ```
 
+In case it is desired to configure a [root path](https://github.com/bripkens/proxrox/blob/master/CONFIGURATION.md#root),
+please make sure to add an additional volume mapping to the above script. For example to work with a root path such as
+`/home/myhome/nginx-root`, add the mapping: `-v "/home/myhome/nginx-root:/home/myhome/nginx-root" \`.
