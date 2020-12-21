@@ -3,6 +3,7 @@
 ## 1.16.0
  - Updated `mkdirp` dependency to recent version.
  - When creating temporary directories for nginx config, explicitly set the `umask` (file permissions).
+ - Upgrade shelljs to at least `0.8.4` to remove warnings in Node.js 14.
 
 ## 1.15.0
  - Dependencies upgraded to address (non-critical) security vulnerabilities in dependencies.
