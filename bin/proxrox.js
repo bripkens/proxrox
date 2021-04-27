@@ -68,7 +68,8 @@ program
       ssi: options.ssi,
       stubStatus: options.stubStatus,
       standardServer: options.standardServer,
-      extraSite: options.extraSite
+      extraSite: options.extraSite,
+      proxyReadTimeout: options.proxyReadTimeout,
     };
 
     // now config properties take precedence over the CLI arguments.

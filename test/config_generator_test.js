@@ -232,7 +232,20 @@ describe('config_generator', function() {
       }, 'extraSiteOnly.conf');
     });
 
-    it('should fail when only tlsCertificateFile is set', function() {
+    it('should support read timeout', function () {
+      testConfig(
+        {
+          standardServer: true,
+          tmpDir: '/tmp/proxrox',
+          serverName: 'example',
+          port: 8080,
+          root: '/var/www',
+          logDir: '/tmp/nginx-logs/',
+          proxyReadTimeout: 120,
+        }, 'timeout.conf');
+    });
+
+    it('should fail when only tlsCertificateFile is set', function () {
       var invalid = {tlsCertificateFile: '.abc/'}
 
       expect(function() {configGenerator.generate(invalid)}).to.throw(Error);
