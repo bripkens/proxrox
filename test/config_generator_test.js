@@ -241,7 +241,7 @@ describe('config_generator', function() {
           port: 8080,
           root: '/var/www',
           logDir: '/tmp/nginx-logs/',
-          proxyReadTimeout: 120,
+          proxyReadTimeout: '120s',
         }, 'timeout.conf');
     });
 

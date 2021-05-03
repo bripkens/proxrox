@@ -155,7 +155,7 @@ For more example and resulting nginx configurations take a look at the
 When set, reading a response from the proxied server will timeout at this.
 
 - **Type**: `string`
-- **Default**: 60
+- **Default**: 60s
 - **Nginx docs**:
   - http://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_read_timeout
 
