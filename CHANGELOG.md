@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+ - Add `proxyReadTimeout` to configuration.
+
 ## 1.16.0
  - Updated `mkdirp` dependency to recent version.
  - When creating temporary directories for nginx config, explicitly set the `umask` (file permissions).
