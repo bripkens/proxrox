@@ -11,6 +11,7 @@
 	- [directoryIndex](#directoryindex)
 	- [gzip](#gzip)
 	- [proxy](#proxy)
+	- [proxyReadTimeout](#proxyReadTimeout)
 	- [websocketProxy](#websocketproxy)
 	- [tls](#tls)
   - [tlsCertificateFile](#tlsCertificateFile)
@@ -148,6 +149,15 @@ For more example and resulting nginx configurations take a look at the
  - **Nginx docs**:
    - http://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_pass
 
+
+### proxyReadTimeout
+
+When set, reading a response from the proxied server will timeout at this.
+
+- **Type**: `string`
+- **Default**: 60s
+- **Nginx docs**:
+  - http://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_read_timeout
 
 ### websocketProxy
 Similar to the `proxy` directive, the `websocketProxy` directive will proxy requests to services that accept HTTP upgrade requests. In contrast to the `proxy` directive, the `websocketProxy` directive sets the necessary HTTP `Upgrade` and `Connection` headers.
