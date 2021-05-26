@@ -1,7 +1,9 @@
 # Changelog
 
-## 1.17.0
+## 1.18.0
+ - Automatically enable `proxy_ssl_server_name` to enable [TLS SNI](https://en.wikipedia.org/wiki/Server_Name_Indication). This allows proxrox to be compatible with many CDNs and shared load balancers.
 
+## 1.17.0
  - Add `proxyReadTimeout` to configuration.
 
 ## 1.16.0
