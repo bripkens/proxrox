@@ -70,8 +70,11 @@ On Ubuntu you could install Nginx with `apt-get`:
 sudo apt-get install nginx
 ```
 
-Nginx must be executed with your own user. You can achieve this by adding the path to the Nginx executable to the sudoers file.
+Nginx must be executed with your own user, there are 2 ways to do this -
+1. Adding the path to the Nginx executable to the sudoers file.
+2. Using authbind
 
+#### Adding path to the Nginx executable
 ```
 sudo visudo -f /etc/sudoers.d/nginx
 ```
@@ -85,6 +88,24 @@ In the file add the line
 Replace `<username>` with the output of `whoami` and `/path/to/nginx` with the output of `which nginx`. Further information is available via [StackOverflow](http://askubuntu.com/questions/159007/how-do-i-run-specific-sudo-commands-without-a-password).
 
 You will also need to `chown` the Nginx error log so it is accessible by your user. You can see the location of this log file when you run `nginx -V` as the `--error-log-path` configure argument's parameter.
+
+#### Using authbind
+[authbind](http://manpages.ubuntu.com/manpages/bionic/man1/authbind.1.html) allows non-root users to bind processes to ports that require root access.
+
+To setup authbind, run -
+```sh
+sudo apt-get install authbind
+# Bind 80 & 443.
+sudo touch /etc/authbind/byport/80
+sudo touch /etc/authbind/byport/443
+sudo chmod 777 /etc/authbind/byport/80
+sudo chmod 777 /etc/authbind/byport/443
+```
+
+Running proxrox 
+```sh
+authbind --deep proxrox start .proxrox.yaml
+```
 
 ### Use Nginx with Docker
 By aliasing the `nginx` command to start a Docker container, it's also possible to run proxrox without having Nginx
