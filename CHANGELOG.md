@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.0.0
+ - **Breaking:** Remove SPDY support.
+ - **Breaking:** Remove shorthand notation for `proxy` option.
+ - **Breaking:** The `install` CLI command is no longer supported.
+ - **Breaking:** The `proxrox start` command no longer has options that allow control over a subset of the configuration parameters. Instead a config file must always be provided.
+ - **Breaking:** Require at least Node.js v14.
+ - Document `standardServer` and `extraSite` options.
+
 ## 1.18.0
  - Automatically enable `proxy_ssl_server_name` to enable [TLS SNI](https://en.wikipedia.org/wiki/Server_Name_Indication). This allows proxrox to be compatible with many CDNs and shared load balancers.
 

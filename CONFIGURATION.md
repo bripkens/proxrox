@@ -20,6 +20,8 @@
 	- [http2](#http2)
 	- [ssi](#ssi)
 	- [stubStatus](#stubstatus)
+  - [standardServer](#standardserver)
+  - [extraSite](#extrasite)
 
 <!-- /TOC -->
 
@@ -83,11 +85,20 @@ about serving static assets from the file system.
  - **Nginx docs**:
    - http://nginx.org/en/docs/http/ngx_http_core_module.html#root
 
+### tmpDir
+Defines the path to the temporary directory used to store the generated nginx
+configuration, TLS certificates and more. By default, proxrox will delete and
+re-create this directory on every execution. Explicitly configure a `tmpDir`
+to run multiple proxrox instances at the same time.
+
+ - **Type**: `string`
+ - **Default**: `/tmp/proxrox`
+
 ### logDir
 Defines the path to the nginx logs.
 
  - **Type**: `string`
- - **Default**: `'logs/'` (relative to nginx config dir)
+ - **Default**: `'logs/'` (relative to `tmpDir`)
 
 ### directoryIndex
 Whether or not to generated a directory listing for requests to directories.
@@ -229,3 +240,20 @@ Make basic Nginx status information available under the URI `/nginx_status`
  - **Default**: `false`
  - **Nginx docs**:
    - http://nginx.org/en/docs/http/ngx_http_stub_status_module.html
+
+### standardServer
+Whether to render out the standard server section configured via the remaining
+prorox configuration options. Useful when only desiring to render out an nginx
+config with what is defined in [extraSite](#extrasite).
+
+ - **Type**: `boolean`
+ - **Default**: `true`
+
+### extraSite
+Absolute path to an nginx configuration file that should be included within the generated
+nginx configuration file. Useful to render out an additional server/site section
+within the nginx configuration.
+
+ - **Type**: `string`
+ - **Nginx docs**:
+   - http://nginx.org/en/docs/http/ngx_http_core_module.html#server
