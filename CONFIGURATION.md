@@ -12,14 +12,14 @@
 	- [gzip](#gzip)
 	- [proxy](#proxy)
 	- [proxyReadTimeout](#proxyReadTimeout)
-	- [websocketProxy](#websocketproxy)
 	- [tls](#tls)
   - [tlsCertificateFile](#tlsCertificateFile)
   - [tlsCertificateKeyFile](#tlsCertificateKeyFile)
-	- [spdy](#spdy)
 	- [http2](#http2)
 	- [ssi](#ssi)
 	- [stubStatus](#stubstatus)
+  - [standardServer](#standardserver)
+  - [extraSite](#extrasite)
 
 <!-- /TOC -->
 
@@ -43,10 +43,12 @@ this. The following sections explain the supported options.
 
 ```
 # you can use YAML comments
-proxy: 'http://127.0.0.1:8080'
-spdy: true
-ssi: true
 root: './web'
+ssi: true
+proxy:
+  - type: 'http'
+    from: '/'
+    to: 'http://127.0.0.1:8080'
 ```
 
 ## Configuration Options
@@ -83,11 +85,20 @@ about serving static assets from the file system.
  - **Nginx docs**:
    - http://nginx.org/en/docs/http/ngx_http_core_module.html#root
 
+### tmpDir
+Defines the path to the temporary directory used to store the generated nginx
+configuration, TLS certificates and more. By default, proxrox will delete and
+re-create this directory on every execution. Explicitly configure a `tmpDir`
+to run multiple proxrox instances at the same time.
+
+ - **Type**: `string`
+ - **Default**: `/tmp/proxrox`
+
 ### logDir
 Defines the path to the nginx logs.
 
  - **Type**: `string`
- - **Default**: `'logs/'` (relative to nginx config dir)
+ - **Default**: `'logs/'` (relative to `tmpDir`)
 
 ### directoryIndex
 Whether or not to generated a directory listing for requests to directories.
@@ -122,14 +133,10 @@ for incoming requests.
 
 ```
 root: '/var/www'
-proxy: 'http://api.example.com'
-```
-
-The previous configuration is effectively the same as writing the following:
-```
-root: '/var/www'
 proxy:
-  '/': 'http://api.example.com'
+  - type: 'http'
+    from: '/'
+    to: 'http://api.example.com'
 ```
 
 Multiple proxies can be used which will be turned into additional nginx
@@ -137,15 +144,19 @@ location blocks:
 ```
 root: '/var/www'
 proxy:
-  '/': 'http://api.example.com'
-  '/cms': 'http://127.0.0.1:8080'
+  - type: 'http'
+    from: '/'
+    to: 'http://api.example.com'
+  - type: 'websocket'
+    from: '/data'
+    to: 'http://data.example.com'
 ```
 
 For more example and resulting nginx configurations take a look at the
 [tests](https://github.com/bripkens/proxrox/blob/master/test/config_generator_test.js).
 
- - **Type**: `string` or `object<string, string>`
- - **Default**: `{}`
+ - **Type**: `Array<{type: 'http' | 'websocket' | 'eventsource', from: string, to: string}>`
+ - **Default**: `[]`
  - **Nginx docs**:
    - http://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_pass
 
@@ -158,16 +169,6 @@ When set, reading a response from the proxied server will timeout at this.
 - **Default**: 60s
 - **Nginx docs**:
   - http://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_read_timeout
-
-### websocketProxy
-Similar to the `proxy` directive, the `websocketProxy` directive will proxy requests to services that accept HTTP upgrade requests. In contrast to the `proxy` directive, the `websocketProxy` directive sets the necessary HTTP `Upgrade` and `Connection` headers.
-
-Example:
-
-```
-websocketProxy:
-  '/socket.io': 'http://127.0.0.1:3000/socket.io'
-```
 
 
 ### tls
@@ -198,14 +199,6 @@ If this flag is set, `tlsCertificateFile` must also be set.
  - **Type**: `string`
 
 
-### spdy
-Proxrox can enable SPDY protocol support. Activating SPDY also implies the `tls` option.
-
- - **Type**: `boolean`
- - **Default**: `false`
- - **Nginx docs**:
-   - http://nginx.org/en/docs/http/ngx_http_spdy_module.html
-
 ### http2
 Proxrox can enable HTTP 2 protocol support. Activating HTTP 2 does not mean that `tls` is implied. Nginx can support HTTP 2 without TLS. This is only available when used with at least nginx 1.9.5.
 
@@ -229,3 +222,20 @@ Make basic Nginx status information available under the URI `/nginx_status`
  - **Default**: `false`
  - **Nginx docs**:
    - http://nginx.org/en/docs/http/ngx_http_stub_status_module.html
+
+### standardServer
+Whether to render out the standard server section configured via the remaining
+prorox configuration options. Useful when only desiring to render out an nginx
+config with what is defined in [extraSite](#extrasite).
+
+ - **Type**: `boolean`
+ - **Default**: `true`
+
+### extraSite
+Absolute path to an nginx configuration file that should be included within the generated
+nginx configuration file. Useful to render out an additional server/site section
+within the nginx configuration.
+
+ - **Type**: `string`
+ - **Nginx docs**:
+   - http://nginx.org/en/docs/http/ngx_http_core_module.html#server

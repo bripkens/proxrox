@@ -1,3 +1,5 @@
 root: .
-websocketProxy:
-  /data: https://wss.websocketstest.com/service
+proxy:
+  - type: 'websocket'
+    from: '/data'
+    to: 'https://wss.websocketstest.com/service'

@@ -12,23 +12,20 @@ var WebpackDevServer = require('webpack-dev-server');
 var webpackConfigGenerator = require('./webpackConfigGenerator.js');
 var questions = require('./questions');
 
-
-inquirer.prompt(questions, function(answers) {
+inquirer.prompt(questions, function (answers) {
   openDevUrl();
   startProxrox(answers.environment);
   startWebpackDevServer(answers.compilationMode);
 });
-
 
 function startWebpackDevServer(compilationMode) {
   var config = webpackConfigGenerator(compilationMode);
 
   new WebpackDevServer(webpack(config), {
     stats: {
-      colors: true
-    }
-  })
-  .listen(3000, 'localhost', function(err) {
+      colors: true,
+    },
+  }).listen(3000, 'localhost', function (err) {
     if (err) {
       throw new Error('Failed to start Webpack dev server', err);
     }
@@ -36,18 +33,24 @@ function startWebpackDevServer(compilationMode) {
   });
 }
 
-
 function startProxrox(backendUrl) {
   startProxroxWithConfig({
     tls: true,
     root: path.join(__dirname, '..', 'client'),
-    proxy: {
-      '/': 'http://localhost:3000',
-      '/api/': backendUrl
-    }
+    proxy: [
+      {
+        type: 'http',
+        from: '/',
+        to: 'http://localhost:3000',
+      },
+      {
+        type: 'http',
+        from: '/api/',
+        to: backendUrl,
+      },
+    ],
   });
 }
-
 
 function startProxroxWithConfig(config) {
   var configLocation = path.join(os.tmpdir(), '.proxrox.json');
@@ -61,13 +64,12 @@ function startProxroxWithConfig(config) {
     'proxrox'
   );
   execSync('"' + executable + '" stop', {
-    stdio: 'inherit'
+    stdio: 'inherit',
   });
   execSync('"' + executable + '" start "' + configLocation + '"', {
-    stdio: 'inherit'
+    stdio: 'inherit',
   });
 }
-
 
 function openDevUrl() {
   opn('https://localhost:4000');
