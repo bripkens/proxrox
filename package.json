@@ -35,7 +35,8 @@
     "clean": "rm -rf dist",
     "build": "npm run clean && npm run build:ts && npm run build:permissions",
     "build:ts": "tsc",
-    "build:permissions": "chmod a+x dist/bin/index.js"
+    "build:permissions": "chmod a+x dist/bin/index.js",
+    "prepublishOnly": "npm run test && npm run build"
   },
   "engines": {
     "node": ">=0.14"
