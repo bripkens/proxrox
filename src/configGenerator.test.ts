@@ -18,7 +18,7 @@ describe('generate', () => {
         serverName: 'example',
         port: 8080,
         root: '/var/www',
-        logDir: '/tmp/nginx-logs/',
+        logDir: '/tmp/nginx-logs',
       },
       'simple.conf'
     );
@@ -32,7 +32,7 @@ describe('generate', () => {
         serverName: 'example',
         port: 8080,
         root: '/var/www',
-        logDir: '/tmp/nginx-logs/',
+        logDir: '/tmp/nginx-logs',
         directoryIndex: false,
       },
       'directoryIndex.conf'
@@ -47,7 +47,7 @@ describe('generate', () => {
         serverName: 'example',
         port: 8080,
         root: '/var/www',
-        logDir: '/tmp/nginx-logs/',
+        logDir: '/tmp/nginx-logs',
         gzip: false,
       },
       'gzip.conf'
@@ -62,7 +62,7 @@ describe('generate', () => {
         serverName: 'example',
         port: 8080,
         root: '/var/www',
-        logDir: '/tmp/nginx-logs/',
+        logDir: '/tmp/nginx-logs',
         proxy: [
           {
             type: 'http',
@@ -83,7 +83,7 @@ describe('generate', () => {
         serverName: 'example',
         port: 8080,
         root: '/var/www',
-        logDir: '/tmp/nginx-logs/',
+        logDir: '/tmp/nginx-logs',
         ssi: true,
       },
       'ssi.conf'
@@ -98,7 +98,7 @@ describe('generate', () => {
         serverName: 'example',
         port: 8080,
         root: '/var/www',
-        logDir: '/tmp/nginx-logs/',
+        logDir: '/tmp/nginx-logs',
         tls: true,
       },
       'tls.conf'
@@ -113,17 +113,47 @@ describe('generate', () => {
         serverName: 'example',
         port: 8080,
         root: '/var/www',
-        logDir: '/tmp/nginx-logs/',
+        logDir: '/tmp/nginx-logs',
         proxy: [
           {
             type: 'http',
             from: '/',
-            to: 'http://127.0.0.1:8080'
+            to: 'http://127.0.0.1:8080',
+            additionalDirectives: `proxy_set_header Foo bar;`
           },
           {
             type: 'http',
             from: '/api',
             to: 'http://api.example.com'
+          },
+          {
+            type: 'eventsource',
+            from: '/api/es',
+            to: 'http://es.example.com'
+          },
+          {
+            type: 'websocket',
+            from: '/api/ws',
+            to: 'http://ws.example.com'
+          },
+
+          {
+            type: 'http',
+            from: '/apiv2',
+            to: 'http://api.example.com',
+            additionalDirectives: `proxy_set_header Foo bar;`
+          },
+          {
+            type: 'eventsource',
+            from: '/apiv2/es',
+            to: 'http://esv2.example.com',
+            additionalDirectives: `proxy_set_header Foo bar;`
+          },
+          {
+            type: 'websocket',
+            from: '/apiv2/ws',
+            to: 'http://wsv2.example.com',
+            additionalDirectives: `proxy_set_header Foo bar;`
           }
         ],
       },
@@ -139,7 +169,7 @@ describe('generate', () => {
         serverName: 'example',
         port: 8080,
         root: '/var/www',
-        logDir: '/tmp/nginx-logs/',
+        logDir: '/tmp/nginx-logs',
         proxy: [
           {
             type: 'http',
@@ -165,7 +195,7 @@ describe('generate', () => {
         serverName: 'example',
         port: 8080,
         root: false,
-        logDir: '/tmp/nginx-logs/',
+        logDir: '/tmp/nginx-logs',
         proxy: [
           {
             type: 'http',
@@ -188,48 +218,6 @@ describe('generate', () => {
     );
   });
 
-  it('must proxy with websocket upgrade support', async () => {
-    await testConfig(
-      {
-        standardServer: true,
-        tmpDir: '/tmp/proxrox',
-        serverName: 'example',
-        port: 8080,
-        root: false,
-        logDir: '/tmp/nginx-logs/',
-        proxy: [
-          {
-            type: 'websocket',
-            from: '/api/data',
-            to: 'http://api.example.com/api/foo'
-          }
-        ]
-      },
-      'websocket_proxy.conf'
-    );
-  });
-
-  it('must proxy eventsource', async () => {
-    await testConfig(
-      {
-        standardServer: true,
-        tmpDir: '/tmp/proxrox',
-        serverName: 'example',
-        port: 8080,
-        root: false,
-        logDir: '/tmp/nginx-logs/',
-        proxy: [
-          {
-            type: 'eventsource',
-            from: '/api/data',
-            to: 'http://api.example.com/api/foo'
-          }
-        ]
-      },
-      'eventsource_proxy.conf'
-    );
-  });
-
   it('must proxy with ssi', async () => {
     await testConfig(
       {
@@ -238,7 +226,7 @@ describe('generate', () => {
         serverName: 'example',
         port: 8080,
         root: false,
-        logDir: '/tmp/nginx-logs/',
+        logDir: '/tmp/nginx-logs',
         ssi: true,
         proxy: [
           {
@@ -270,7 +258,7 @@ describe('generate', () => {
         serverName: 'example',
         port: 8080,
         root: '/var/www',
-        logDir: '/tmp/nginx-logs/',
+        logDir: '/tmp/nginx-logs',
         http2: true,
       },
       'http2.conf'
@@ -285,7 +273,7 @@ describe('generate', () => {
         serverName: 'example',
         port: 8080,
         root: '/var/www',
-        logDir: '/tmp/nginx-logs/',
+        logDir: '/tmp/nginx-logs',
         http2: true,
         tls: true,
       },
@@ -301,7 +289,7 @@ describe('generate', () => {
         serverName: 'example',
         port: 8080,
         root: '/var/www',
-        logDir: '/tmp/nginx-logs/',
+        logDir: '/tmp/nginx-logs',
         stubStatus: true,
       },
       'stubStatus.conf'
@@ -327,7 +315,7 @@ describe('generate', () => {
           serverName: 'example',
           port: 8080,
           root: '/var/www',
-          logDir: '/tmp/nginx-logs/',
+          logDir: '/tmp/nginx-logs',
           stubStatus: true,
           extraSite: pathToExtraSite,
         },
@@ -343,7 +331,7 @@ describe('generate', () => {
           serverName: 'example',
           port: 8080,
           root: '/var/www',
-          logDir: '/tmp/nginx-logs/',
+          logDir: '/tmp/nginx-logs',
           stubStatus: true,
           extraSite: pathToExtraSite,
         },
@@ -360,7 +348,7 @@ describe('generate', () => {
         serverName: 'example',
         port: 8080,
         root: '/var/www',
-        logDir: '/tmp/nginx-logs/',
+        logDir: '/tmp/nginx-logs',
         proxyReadTimeout: '120s',
       },
       'timeout.conf'

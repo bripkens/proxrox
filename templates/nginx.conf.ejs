@@ -1,8 +1,8 @@
 worker_processes             1;
 
-error_log                    <%- logDir %>error.log info;
+error_log                    <%- logDir %>/error.log info;
 
-pid                          <%- logDir %>nginx.pid;
+pid                          <%- tmpDir %>/nginx.pid;
 
 events {
   worker_connections         1024;
@@ -28,7 +28,7 @@ http {
   ssl_certificate          server.crt;
   ssl_certificate_key      server.key;
 <% } %>
-  access_log               <%- logDir %>access.log standard_format buffer=32k;
+  access_log               <%- logDir %>/access.log standard_format;
   log_not_found            on;
   log_subrequest           on;
 <% if (ssi) { %>
@@ -67,34 +67,42 @@ http {
     location @proxy {
       proxy_pass             <%- proxy.find(({from, type}) => from === '/' && type === 'http').to %>;
       proxy_cache            off;
+      proxy_set_header       Host $proxy_host;
       proxy_set_header       X-Real-IP $remote_addr;
       proxy_set_header       X-Forwarded-For $proxy_add_x_forwarded_for;<% if (ssi) { %>
-      proxy_set_header       Accept-Encoding "";<% } %>
+      proxy_set_header       Accept-Encoding "";<% } %><% if (proxy.find(({from, type}) => from === '/' && type === 'http').additionalDirectives) { %>
+<%- proxy.find(({from, type}) => from === '/' && type === 'http').additionalDirectives %><% } %>
     }
-<% } proxy.filter(({from, type}) => (from !== '/' || root === false) && type === 'http').forEach(({from, to}) => { %>
+<% } proxy.filter(({from, type}) => (from !== '/' || root === false) && type === 'http').forEach(({from, to, additionalDirectives}) => { %>
     location <%- from %> {
       proxy_pass             <%- to %>;
       proxy_cache            off;
+      proxy_set_header       Host $proxy_host;
       proxy_set_header       X-Real-IP $remote_addr;
       proxy_set_header       X-Forwarded-For $proxy_add_x_forwarded_for;<% if (ssi) { %>
-      proxy_set_header       Accept-Encoding "";<% } %>
+      proxy_set_header       Accept-Encoding "";<% } %><% if (additionalDirectives) { %>
+<%- additionalDirectives %><% } %>
     }
-<% }); proxy.filter(({type}) => type === 'websocket').forEach(({from, to}) => { %>
+<% }); proxy.filter(({type}) => type === 'websocket').forEach(({from, to, additionalDirectives}) => { %>
     location <%- from %> {
       proxy_pass             <%- to %>;
       proxy_cache            off;
+      proxy_set_header       Host $proxy_host;
       proxy_http_version     1.1;
       proxy_set_header       Upgrade $http_upgrade;
-      proxy_set_header       Connection "upgrade";
+      proxy_set_header       Connection "upgrade";<% if (additionalDirectives) { %>
+<%- additionalDirectives %><% } %>
     }
-<% }); proxy.filter(({type}) => type === 'eventsource').forEach(({from, to}) => { %>
+<% }); proxy.filter(({type}) => type === 'eventsource').forEach(({from, to, additionalDirectives}) => { %>
     location <%- from %> {
       proxy_pass                <%- to %>;
       proxy_cache               off;
+      proxy_set_header          Host $proxy_host;
       proxy_http_version        1.1;
       proxy_set_header          Connection "";
       proxy_buffering           off;
-      chunked_transfer_encoding off;
+      chunked_transfer_encoding off;<% if (additionalDirectives) { %>
+<%- additionalDirectives %><% } %>
     }
 <% }); %>
     error_page               500 502 503 504 /50x.html;

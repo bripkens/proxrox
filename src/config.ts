@@ -4,7 +4,7 @@ export interface ProxyDefinition {
   type: ProxyType;
   from: string;
   to: string;
-  [urlPathPrefix: string]: string;
+  additionalDirectives?: string;
 }
 
 export interface ConfigWithDefaults {

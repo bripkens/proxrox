@@ -14,18 +14,25 @@ export async function generate(configWithDefaults: ConfigWithDefaults): Promise<
   configWithDefaults = {
     ...configWithDefaults
   };
+
   if (configWithDefaults.extraSite) {
     configWithDefaults.extraSite = await fs.readFile(configWithDefaults.extraSite, {encoding: 'utf8'});
-    configWithDefaults.extraSite = indentToEnsureFittingPositioning(configWithDefaults.extraSite);
+    configWithDefaults.extraSite = indentToEnsureFittingPositioning(configWithDefaults.extraSite, 2);
   }
+
+  configWithDefaults.proxy.forEach(p => {
+    if (p.additionalDirectives) {
+      p.additionalDirectives = indentToEnsureFittingPositioning(p.additionalDirectives, 6)
+    }
+  });
 
   return compiledTemplate(configWithDefaults);
 }
 
-function indentToEnsureFittingPositioning(extraSite: string): string {
-  return extraSite
+function indentToEnsureFittingPositioning(str: string, numberOfSpaces: number): string {
+  return str
     .trim()
     .split('\n')
-    .map(line =>  '  ' + line)
+    .map(line =>  ' '.repeat(numberOfSpaces) + line)
     .join('\n');
 }

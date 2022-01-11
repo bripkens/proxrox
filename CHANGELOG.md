@@ -1,5 +1,8 @@
 # Changelog
 
+## 2.1.0
+ - Support the definition of custom directives for proxies via `additionalDirectives`.
+
 ## 2.0.0
  - **Breaking:** Remove SPDY support.
  - **Breaking:** Remove shorthand notation for `proxy` option.

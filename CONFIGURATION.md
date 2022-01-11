@@ -155,7 +155,7 @@ proxy:
 For more example and resulting nginx configurations take a look at the
 [tests](https://github.com/bripkens/proxrox/blob/master/test/config_generator_test.js).
 
- - **Type**: `Array<{type: 'http' | 'websocket' | 'eventsource', from: string, to: string}>`
+ - **Type**: `Array<{type: 'http' | 'websocket' | 'eventsource', from: string, to: string, additionalDirectives?: string}>`
  - **Default**: `[]`
  - **Nginx docs**:
    - http://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_pass
