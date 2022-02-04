@@ -44,7 +44,7 @@
   "author": "Ben Blackmore <bripkens@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "colors": "^1.4.1",
+    "colors": "1.4.0",
     "commander": "^8.3.0",
     "ejs": "^3.1.6",
     "js-yaml": "^4.1.0"

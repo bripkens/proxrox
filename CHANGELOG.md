@@ -1,5 +1,8 @@
 # Changelog
 
+## 2.1.1
+ - Use `colors@1.4.0` to avoid reference to unpublished library.
+
 ## 2.1.0
  - Support the definition of custom directives for proxies via `additionalDirectives`.
 
