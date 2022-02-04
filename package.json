@@ -1,6 +1,6 @@
 {
   "name": "proxrox",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "Proxy services, combine origins, use SSI and more during development",
   "keywords": [
     "nginx",
