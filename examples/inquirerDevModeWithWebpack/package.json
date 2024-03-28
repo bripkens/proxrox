@@ -17,6 +17,6 @@
     "webpack-dev-server": "4.11.1"
   },
   "dependencies": {
-    "express": "4.17.3"
+    "express": "4.19.2"
   }
 }
